@@ -42,7 +42,7 @@ export default function Navbar() {
             className={cn(
                 "fixed top-[80px]",
                 {
-                    "translate-x-0": open,
+                    "translate-x-[-20px]": open,
                     "-translate-x-[400px]": !open
                 }
             )}
