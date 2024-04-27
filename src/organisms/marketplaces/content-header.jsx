@@ -3,7 +3,7 @@ import Button from "../../components/button";
 
 export default function MarketPlacesContentHeader() {
     return(
-        <div className="h-fit w-full flex justify-between items-center">
+        <div className="h-fit w-full flex flex-col-reverse md:flex-row gap-[10px] justify-start md:justify-between items-start md:items-center">
             <SearchBar
             className={"w-[280px]"} 
             border

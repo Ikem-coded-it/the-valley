@@ -12,7 +12,7 @@ function App() {
         <Navbar/>
 
         <div className="sidebar-pages-container dashboard-container flex">
-          <Sidebar/>
+          <Sidebar className="hidden lg:block"/>
 
           <PagesContainer>
             <MarketPlacesPage/>

@@ -10,7 +10,7 @@ export default function MarketPlacesPage() {
             <MarketPlacesHeader/>
             <MarketPlaceFilter/>
 
-            <section className="bg-[#FFFFFF] p-8 flex flex-col justify-start items-center h-fit w-full gap-6">
+            <section className="bg-[#FFFFFF] p-[15px] md:p-8 flex flex-col justify-start items-center h-fit w-full gap-6 rounded-[8px]">
                 <MarketPlacesContentHeader/>
                 <MarketPlaces/>
             </section>

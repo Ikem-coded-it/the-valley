@@ -3,8 +3,8 @@ import { filterItems } from "../../store/marketplaces";
 
 export default function MarketPlaceFilter() {
     return (
-        <section className="h-fit w-fit">
-            <div className="h-fit w-fit flex gap-[9px]">
+        <section className="h-fit w-full">
+            <div className="h-fit w-full flex justify-center items-center flex-wrap gap-[9px]">
                 {
                     filterItems.map(item => {
                         return(

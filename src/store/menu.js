@@ -3,46 +3,55 @@
 export const menu = [
     {
         icon: "/icons/menu/home.png",
+        iconActive: "/icons/menu/green-home.svg",
         text: "Home",
         path: "/"
     },
     {
         icon: "/icons/menu/communities.png",
+        iconActive: "/icons/menu/green-communities.svg",
         text: "Communities",
         path: "/"
     },
     {
         icon: "/icons/menu/leaderboard.png",
+        iconActive: "/icons/menu/green-leaderboard.svg",
         text: "Leaderboard",
         path: "/"
     },
     {
         icon: "/icons/menu/directory.png",
+        iconActive: "/icons/menu/green-directory.svg",
         text: "Directory",
         path: "/"
     },
     {
         icon: "/icons/menu/co-founder.png",
+        iconActive: "/icons/menu/green-co-founder.svg",
         text: "Find a cofounder",
         path: "/"
     },
     {
         icon: "/icons/menu/event.png",
+        iconActive: "/icons/menu/green-event.svg",
         text: "Events",
         path: "/"
     },
     {
         icon: "/icons/menu/resources.png",
+        iconActive: "/icons/menu/green-resources.svg",
         text: "Resources",
         path: "/"
     },
     {
         icon: "/icons/menu/marketplace.png",
+        iconActive: "/icons/menu/green-marketplace.png",
         text: "Marketplaces",
         path: "/"
     },
     {
         icon: "/icons/menu/quiz.png",
+        iconActive: "/icons/menu/green-quiz.svg",
         text: "Quiz",
         path: "/"
     },

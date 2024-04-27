@@ -1,15 +1,34 @@
 import { menu, recentCommunities, recentChats, extraMenuOptions } from "../../store/menu";
 import { cn } from "../../utils/util";
+import Button from "../button";
 
-export default function Sidebar() {
+export default function Sidebar({className}) {
+    const active = "Marketplaces"
     return(
-        <aside className="sidebar min-w-[376px] max-w-[376px] border-[1px] border-[#EBEEF3] pl-[80px] py-6 bg-[#FFFFFF] flex items-start overflow-y-auto">
+        <aside className={cn(
+            "sidebar lg:min-w-[326px] xl:min-w-[376px] max-w-[376px] border-[1px] border-[#EBEEF3] pl-[15px] md:pl-[30px] lg:pl-[50px] xl:pl-[80px] py-6 bg-[#FFFFFF] flex flex-col items-start justify-start gap-6 overflow-y-auto transition duration-[.3s] ease-out",
+            className
+        )}>
+            <div className="flex lg:hidden justify-start items-center gap-4">
+                <Button
+                icon={<i className="ph ph-plus"></i>}
+                text="Create Post"
+                className="text-[#227A5F] text-base font-semibold border-[#227A5F] hover:bg-[#227A5F] hover:text-[#ffffff]"
+                />
+
+                <Button
+                icon={<i className="ph ph-chat-circle-dots text-[#ADBACC] text-[20px]"></i>}
+                className="text-base border-[#ADBACC]"
+                />
+            </div>
+
             <nav className="w-[256px] h-fit flex flex-col justify-start gap-12">
                 <ul className="flex flex-col gap-2 items-start justify-start w-full">
                     {
                         menu.map(item => {
+                            const activeLink = item.text === active
                             return(
-                                <MenuItem key={item.text} {...item}/>
+                                <MenuItem key={item.text} {...item} active={activeLink}/>
                             )
                         })
                     }
@@ -67,15 +86,32 @@ function MenuItem({...props}) {
             href={props.path}
             className={cn(
                 "w-full h-full flex justify-start items-center gap-2 pl-4 hover:bg-[#EFFAF5] hover:text-secondary text-[#212630] group",
-                
+                {
+                    "bg-[#EFFAF5]": props.active
+                }
             )}>
-                <img
-                src={props.icon}
-                alt={`${props.icon} menu link icon`}
-                className="h-6 w-6 object-cover object-center"
-                />
+                {
+                    props.active ? (
+                        <img
+                        src={props.iconActive}
+                        alt={`${props.icon} menu link icon`}
+                        className="h-6 w-6 object-cover object-center"
+                        />
+                    ) : (
+                        <img
+                        src={props.icon}
+                        alt={`${props.icon} menu link icon`}
+                        className="h-6 w-6 object-cover object-center"
+                        />
+                    )
+                }
 
-                <p className="font-semibold text-base hover:text-inherit">
+                <p className={cn(
+                    "font-semibold text-base hover:text-inherit",
+                    {
+                        "text-secondary": props.active
+                    }
+                )}>
                     {props.text}
                 </p>
             </a>
