@@ -1,0 +1,40 @@
+import SearchBar from "../../components/searchbar";
+import Button from "../../components/button";
+
+export default function MarketPlacesContentHeader() {
+    return(
+        <div className="h-fit w-full flex justify-between items-center">
+            <SearchBar
+            className={"w-[280px]"} 
+            border
+            placeholder="Search here..."
+            />
+
+            <div className="flex justify-between items-center gap-[10px]">
+                <Button
+                icon={
+                    <img
+                    classname="h-6 w-6"
+                    src="/pages/marketplaces/sort.svg"
+                    alt="sort button icon"
+                    />
+                }
+                text="Sort"
+                className="font-semibold text-[#212630] text-sm"
+                />
+
+                <Button
+                icon={
+                    <img
+                    classname="h-6 w-6"
+                    src="/pages/marketplaces/filter.svg"
+                    alt="filter button icon"
+                    />
+                }
+                text="Filter"
+                className="font-semibold text-[#212630] text-sm"
+                />
+            </div>
+        </div>
+    )
+}

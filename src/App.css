@@ -1,0 +1,15 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.dashboard-container {
+    min-height: calc(100vh - 80px);
+}
+
+.sidebar {
+    max-height: calc(100vh - 80px);
+}
+
+.sidebar-pages-container {
+    max-height: calc(100vh - 80px);
+}
