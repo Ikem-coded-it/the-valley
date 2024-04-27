@@ -43,7 +43,7 @@ export default function Navbar() {
                 "fixed top-[80px]",
                 {
                     "translate-x-[-20px]": open,
-                    "-translate-x-[400px]": !open
+                    "-translate-x-[1000px]": !open
                 }
             )}
             />

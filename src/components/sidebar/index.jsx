@@ -6,7 +6,7 @@ export default function Sidebar({className}) {
     const active = "Marketplaces"
     return(
         <aside className={cn(
-            "sidebar lg:min-w-[326px] xl:min-w-[376px] max-w-[376px] border-[1px] border-[#EBEEF3] pl-[15px] md:pl-[30px] lg:pl-[50px] xl:pl-[80px] py-6 bg-[#FFFFFF] flex flex-col items-start justify-start gap-6 overflow-y-auto transition duration-[.3s] ease-out",
+            "sidebar lg:min-w-[326px] xl:min-w-[376px] max-w-[376px] border-[1px] border-[#EBEEF3] pl-[15px] md:pl-[30px] lg:pl-[50px] xl:pl-[80px] py-6 bg-[#FFFFFF] flex flex-col items-start justify-start gap-6 overflow-y-auto transition duration-[.5s] ease-in-out",
             className
         )}>
             <div className="flex lg:hidden justify-start items-center gap-4">
