@@ -1,65 +1,65 @@
-
+import ApplicationRoutes from "../config/routes"
 
 export const menu = [
     {
         icon: "/icons/menu/home.png",
         iconActive: "/icons/menu/green-home.svg",
         text: "Home",
-        path: "/"
+        path: ApplicationRoutes.HOME
     },
     {
         icon: "/icons/menu/communities.png",
         iconActive: "/icons/menu/green-communities.svg",
         text: "Communities",
-        path: "/"
+        path: ApplicationRoutes.COMMUNITIES.ALL_COMMUNITIES
     },
     {
         icon: "/icons/menu/leaderboard.png",
         iconActive: "/icons/menu/green-leaderboard.svg",
         text: "Leaderboard",
-        path: "/"
+        path: ApplicationRoutes.LEADERBOARD
     },
     {
         icon: "/icons/menu/directory.png",
         iconActive: "/icons/menu/green-directory.svg",
         text: "Directory",
-        path: "/"
+        path: ApplicationRoutes.DIRECTORY
     },
     {
         icon: "/icons/menu/co-founder.png",
         iconActive: "/icons/menu/green-co-founder.svg",
         text: "Find a cofounder",
-        path: "/"
+        path: ApplicationRoutes.FIND_A_COFOUNDER
     },
     {
         icon: "/icons/menu/event.png",
         iconActive: "/icons/menu/green-event.svg",
         text: "Events",
-        path: "/"
+        path: ApplicationRoutes.EVENTS
     },
     {
         icon: "/icons/menu/resources.png",
         iconActive: "/icons/menu/green-resources.svg",
         text: "Resources",
-        path: "/"
+        path: ApplicationRoutes.RESOURCES
     },
     {
         icon: "/icons/menu/marketplace.png",
         iconActive: "/icons/menu/green-marketplace.png",
         text: "Marketplaces",
-        path: "/"
+        path: ApplicationRoutes.MARKETPLACES
     },
     {
         icon: "/icons/menu/quiz.png",
         iconActive: "/icons/menu/green-quiz.svg",
         text: "Quiz",
-        path: "/"
+        path: ApplicationRoutes.QUIZ
     },
 ]
 
 export const recentCommunities = [
     {
-        icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCx3fNCN9p0iHGfu3rhuIxGd0GIS03FaoRazzHU-sfaQ&s",
+        icon: "/tree.jpg",
         text: "Climate change",
         path: "/"
     },
@@ -82,7 +82,7 @@ export const extraMenuOptions = [
     {
         icon: "/icons/menu/create-community.png",
         text: "Create Community",
-        path: "/"
+        path: ApplicationRoutes.COMMUNITIES.CREATE
     },
     {
         icon: "/icons/menu/saved.png",
@@ -92,6 +92,6 @@ export const extraMenuOptions = [
     {
         icon: "/icons/menu/settings.png",
         text: "Settings",
-        path: "/"
+        path: ApplicationRoutes.SETTINGS
     },
 ]

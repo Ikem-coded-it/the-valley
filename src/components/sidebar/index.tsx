@@ -1,8 +1,9 @@
 import { menu, recentCommunities, recentChats, extraMenuOptions } from "../../store/menu";
 import { cn } from "../../utils/util";
 import Button from "../button";
+import { Link } from "react-router-dom";
 
-export default function Sidebar({className}) {
+export default function Sidebar({className}: { className: string }) {
     const active = "Marketplaces"
     return(
         <aside className={cn(
@@ -82,8 +83,8 @@ export default function Sidebar({className}) {
 function MenuItem({...props}) {
     return(
         <li className="h-[40px] w-full">
-            <a
-            href={props.path}
+            <Link
+            to={props.path}
             className={cn(
                 "w-full h-full flex justify-start items-center gap-2 pl-4 hover:bg-[#EFFAF5] hover:text-secondary text-[#212630] group",
                 {
@@ -114,7 +115,7 @@ function MenuItem({...props}) {
                 )}>
                     {props.text}
                 </p>
-            </a>
+            </Link>
         </li>
     )
 }
@@ -122,8 +123,8 @@ function MenuItem({...props}) {
 function MenuRecentItem({...props}) {
     return(
         <li className="h-[40px] w-full">
-            <a
-            href={props.path}
+            <Link
+            to={props.path}
             className={cn(
                 "w-full h-full flex justify-between items-center gap-2 pl-4 hover:bg-[#EFFAF5] hover:text-secondary text-[#212630] group",
                 
@@ -140,10 +141,10 @@ function MenuRecentItem({...props}) {
                     </p>
                 </div>
 
-                <button classname="h-4 w-4">
+                <button className="h-4 w-4">
                     <i className="ph ph-x text-base text-[#5A6F8C]"></i>
                 </button>
-            </a>
+            </Link>
         </li>
     )
 }

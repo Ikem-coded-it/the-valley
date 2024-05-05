@@ -6,7 +6,7 @@ import Sidebar from "../sidebar";
 import { useState } from "react";
 import { cn } from "../../utils/util";
 
-export default function Navbar() {
+export default function Header() {
     const [open, setOpen] = useState(false)
     return(
         <div className="fixed z-50 top-0 left-0 h-[80px] w-full py-[16px] px-[15px] md:px-[30px] lg:px-[50px] xl:px-[80px] flex justify-between items-center gap-[20px] border-[1px] border-[#EBEEF3] bg-[#FFFFFF]">

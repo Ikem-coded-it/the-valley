@@ -3,8 +3,14 @@ import MarketPlacesHeader from '../../organisms/marketplaces/header';
 import MarketPlaceFilter from '../../organisms/marketplaces/filter';
 import MarketPlacesContentHeader from '../../organisms/marketplaces/content-header';
 import MarketPlaces from './marketplaces';
+import { goToTop } from "../../utils/util";
+import { useEffect } from "react";
 
-export default function MarketPlacesPage() {
+export default function MarketPlacesTemplate() {
+    useEffect(() => {
+        goToTop()
+    }, [])
+    
     return(
         <Page>
             <MarketPlacesHeader/>
