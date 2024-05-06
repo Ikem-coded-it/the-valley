@@ -1,7 +1,8 @@
 import EventSideFeedItem from "../../molecules/home/side-feed-item.js";
 import TrendingTopicItem from "../../molecules/home/trending-topic-item.js";
 import SectionContainer from "../../components/section-container.jsx/index.js";
-import { eventsData, trendingTopicsData } from "@/store/home"
+import TopicItem from "@/molecules/home/topic-item.js";
+import { eventsData, trendingTopicsData, topicsData } from "@/store/home"
 
 
 function Events() {
@@ -22,6 +23,18 @@ function TrendingTopics() {
             {
                 trendingTopicsData.map(item => (
                     <TrendingTopicItem key={item.title} {...item}/>
+                ))
+            }
+        </>
+    )
+}
+
+function Topics() {
+    return(
+        <>
+            {
+                topicsData.map(item => (
+                    <TopicItem key={item.title} {...item}/>
                 ))
             }
         </>
@@ -49,6 +62,16 @@ export default function SideFeeds() {
             }}
             >
                 <TrendingTopics/>
+            </SectionContainer>
+
+            <SectionContainer
+            title="Topics 📌"
+            link={{
+                text: "See All",
+                path: "#"
+            }}
+            >
+                <Topics/>
             </SectionContainer>
         </>
     )
