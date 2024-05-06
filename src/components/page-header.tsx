@@ -1,6 +1,6 @@
 export default function PageHeader({children}) {
     return(
-        <header className="relative overflow-clip bg-secondary w-full h-[238px] p-4 md:p-6 rounded-[8px] flex flex-col justify-start items-center gap-[48px]">
+        <header className="relative overflow-clip bg-secondary w-full min-h-[238px] max-h-fit p-4 md:p-6 rounded-[8px] flex flex-col justify-start items-center gap-[48px]">
             <RightPattern/>
             <LeftPattern/>
             {children}

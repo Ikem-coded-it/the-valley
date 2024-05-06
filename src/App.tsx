@@ -1,4 +1,8 @@
 import './App.css';
+import { PrimeReactProvider } from "primereact/api";
+import Tailwind from "primereact/passthrough/tailwind";
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import DashboardRootLayout from './template/layout';
 import ResourcesPageRoute from "@/pages/Resources/route"
@@ -30,7 +34,14 @@ function App() {
 
   return (
     <>
-    <RouterProvider router={router}/>
+    <PrimeReactProvider
+      value={{
+          unstyled: true,
+          pt: Tailwind,
+      }}
+      >
+        <RouterProvider router={router}/>
+      </PrimeReactProvider>
     </>
   )
 }

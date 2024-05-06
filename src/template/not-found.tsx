@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import ApplicationRoutes from "../config/routes";
-import Page from "@/components/main";
 
 export default function NotFound() {
     return (
@@ -12,8 +11,8 @@ export default function NotFound() {
             <p className="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking for.</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
-                href="/"
-                className="rounded-md bg-secondary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                to="/"
+                className="rounded-md bg-secondary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#EFFAF5] hover:text-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                 Go back home
             </Link>

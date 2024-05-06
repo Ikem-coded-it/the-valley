@@ -1,10 +1,18 @@
 import { cn } from "../utils/util"
 
-export default function SearchBar({className, placeholder, border}) {
+export default function SearchBar({
+    className,
+    placeholder,
+    border
+}:{
+    className?: string
+    placeholder?: string
+    border?: boolean
+}) {
 
     return(
         <div className={cn(
-            "h-[48px] w-[650px] rounded-[8px] py-3 px-4 flex justify-start items-center gap-[10px] bg-[#FFFFFF]",
+            "h-[48px] min-w-fit w-[650px] rounded-[8px] py-3 px-4 flex justify-start items-center gap-[10px] bg-[#FFFFFF]",
            {
             "border-[1px] border-[#D3D9E4]": border,
            },

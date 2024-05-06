@@ -30,3 +30,19 @@
 button {
     transition: all .2s;
 }
+
+input {
+    outline: 0;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.centered {
+    background-position: center;
+    background-size: cover;
+}
+
+.avatar {
+    border-radius: 50%;
+}

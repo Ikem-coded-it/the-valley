@@ -13,7 +13,8 @@ const ApplicationRoutes = {
     MARKETPLACES: "/marketplaces",
     QUIZ: "/quiz",
     SETTINGS: "/profile/:id/settings",
-    CREATE_POST: "/createpost"
+    CREATE_POST: "/createpost",
+    COMPANY_HEALTH: "/company-health-checklist"
 }
 
 export default ApplicationRoutes
