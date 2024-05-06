@@ -1,0 +1,24 @@
+
+
+@media (min-width: 300px) {
+    .pages-container {
+        max-width: 100vw;
+        position: static;
+    }
+}
+
+@media (min-width: 1024px) {
+    .pages-container {
+        max-width: calc(100vw - 326px);
+        position: absolute;
+        left: 326px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .pages-container {
+        max-width: calc(100vw - 376px);
+        position: absolute;
+        left: 376px;
+    }
+}

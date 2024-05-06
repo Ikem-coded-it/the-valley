@@ -5,16 +5,14 @@ import { ReactNode } from 'react';
 
 export default function DashboardRootLayout({ children }: { children: ReactNode }) {
     return(
-        <section className="w-full max-h-[100vh] min-h-[100vh] pt-[80px]">
+        <main className="w-full pt-[80px] relative max-w-[100vw]">
             <Header/>
 
-            <div className="sidebar-pages-container dashboard-container flex">
-                <Sidebar className="hidden lg:block"/>
+            <Sidebar className="hidden lg:block fixed top-[80px]"/>
 
-                <PagesContainer>
-                    { children }
-                </PagesContainer>
-            </div>
-        </section>
+            <PagesContainer>
+                { children }
+            </PagesContainer>
+        </main>
     )
 }
