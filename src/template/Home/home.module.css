@@ -1,0 +1,7 @@
+
+
+@media(min-width: 1024px) {
+    .postsSection {
+        max-width: calc(100% - 296px);
+    }
+}

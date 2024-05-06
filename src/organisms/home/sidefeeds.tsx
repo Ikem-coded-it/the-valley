@@ -45,7 +45,7 @@ function Topics() {
 
 export default function SideFeeds() {
     return(
-        <>
+        <div className="h-fit flex flex-col gap-4">
             <LeaderboardCard
             avatarURL="/avatar.jpg"
             name="Thomas A"
@@ -87,6 +87,6 @@ export default function SideFeeds() {
             >
                 <Topics/>
             </SectionContainer>
-        </>
+        </div>
     )
 }
