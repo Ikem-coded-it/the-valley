@@ -14,7 +14,8 @@ const ApplicationRoutes = {
     QUIZ: "/quiz",
     SETTINGS: "/profile/:id/settings",
     CREATE_POST: "/createpost",
-    COMPANY_HEALTH: "/company-health-checklist"
+    COMPANY_HEALTH: "/company-health-checklist",
+    AUTHORIZE: "/authorize/request"
 }
 
 export default ApplicationRoutes
