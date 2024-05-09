@@ -1,16 +1,18 @@
 import Button from "@/components/button";
+import { useApp } from "@/context/app";
 
 export default function Login() {
-
+    const { nextOnboardingStep } = useApp();
     const CLIENT_ID = import.meta.env['VITE_LINKEDIN_CLIENT_ID'];
     const REDIRECT_URI = import.meta.env['VITE_LINKEDIN_CALLBACK_URL'];
     const LINKED_URL = import.meta.env['VITE_LINKEDIN_URL']
     .replace(":clientId", CLIENT_ID)
-    .replace(":redirectURI", REDIRECT_URI)
+    .replace(":redirectURI", encodeURIComponent(REDIRECT_URI))
 
     const handleLinkedinLogin = () => {
-        console.log("LINKED_URL",LINKED_URL);
-        window.location.href = LINKED_URL
+        nextOnboardingStep()
+        // console.log("LINKED_URL",LINKED_URL);
+        // window.location.href = LINKED_URL
     }
 
     return(
@@ -21,7 +23,7 @@ export default function Login() {
 
             <Button
             icon={<img src="/icons/linkedin.svg"/>}
-            text="Continue with Linked in"
+            text="Continue with Linkedin"
             className="w-full bg-[#0E76A8] text-[#FFFFFF] text-base font-semibold"
             onClick={handleLinkedinLogin}
             />

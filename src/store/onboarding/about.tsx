@@ -9,7 +9,7 @@ export const aboutOnboarding = () => {
         questions: [
             {
                 key: "user_role",
-                type: "multiple choice-box",
+                type: "group choice-box",
                 options: [
                     {
                         icon: <FaUser color="#227A5F" size="24px"/>,

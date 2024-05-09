@@ -20,7 +20,7 @@ export default function Checkbox({ name, label, value, type, ...rest }) {
             className="mr-2"
             />
 
-            <label htmlFor={name} className="text-base text-[#212630] font-[#212630]">
+            <label htmlFor={name} className="text-base text-[#212630] font-[500]">
                 <div className="flex flex-col justify-start items-start gap-1">
                     <p>{label}</p>
                     {

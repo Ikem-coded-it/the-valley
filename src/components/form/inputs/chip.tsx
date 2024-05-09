@@ -1,49 +1,38 @@
 import { cn } from "@/utils/util"
-import { ReactNode } from "react"
 import { useFormikContext } from "formik"
-import { Question } from "@/store/onboarding"
 import { Field } from "formik"
 
-type ChoiceBoxProps = {
+type ChipProps = {
     id: string
     name: string
-    icon: ReactNode
     label: string
     value: string
-    setUserRoleQuestions: (any) => void
-    questions: Question[]
 }
 
-export default function ChoiceBoxInput({
+export default function ChipInput({
     id,
     name,
-    icon,
     label,
     value,
-    setUserRoleQuestions,
-    questions,
     ...props
-}: ChoiceBoxProps) {
+}: ChipProps) {
     const { values, handleChange, handleBlur } = useFormikContext();
-
+    
     return(
         <div className="w-fit h-fit">
             <label
             htmlFor={id}
-            onClick={() => setUserRoleQuestions(questions as any)}
             className={cn(
-                "h-[93px] w-[160px] rounded-[4px] border-[1px] p-4 flex flex-col gap-3 items-center hover:bg-[#EFFAF5] hover:border-secondary hover:cursor-pointer transition duration-[.2s]",
+                "h-[44px] rounded-[20px] border-[1px] px-4 flex items-center justify-center hover:border-secondary hover:cursor-pointer transition duration-[.05s]",
                 {
                     "border-[#D3D9E4] bg-[#FFFFFF]": values?.[name] !== value ,
-                    "border-secondary bg-[#EFFAF5]": values?.[name] === value 
+                    "border-secondary bg-secondary text-white": values?.[name] === value 
                 }
             )}
             >
-                {icon}
-                <p className="text-[#212630] text-base font-[500]">
-                    {label}
-                </p>
+                {label}
             </label>
+
             <Field
             {...props}
             type="radio"

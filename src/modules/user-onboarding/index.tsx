@@ -1,6 +1,8 @@
 import Modal from "@/components/user-onboarding/modal";
 import Login from "./login";
 import About from "./about";
+import Interests from "./interests";
+import FounderType from "./founder-type";
 import { StyledModalBackground } from "@/components/user-onboarding/styles";
 import { useApp } from "@/context/app";
 
@@ -20,6 +22,20 @@ export default function Onboarding() {
                 return(
                     <Modal>
                         <About/>
+                    </Modal>
+                )
+
+            case "interests":
+                return(
+                    <Modal>
+                        <Interests/>
+                    </Modal>
+                )
+
+            case "founder-type":
+                return(
+                    <Modal>
+                        <FounderType/>
                     </Modal>
                 )
 

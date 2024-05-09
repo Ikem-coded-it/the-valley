@@ -1,15 +1,17 @@
 import { aboutOnboarding } from "./about"
+import { interestsOnboarding } from "./interests"
+import { founderTypeOnboarding } from "./founder-type"
 
 export const onboardingSteps = [
     'login',
     'about',
     'interests',
     'founder-type',
-    'funding-stage',
-    'business-model',
-    'description',
-    'industry-group',
-    'agreement',
+    // 'funding-stage',
+    // 'business-model',
+    // 'description',
+    // 'industry-group',
+    // 'agreement',
     null
 ]
 
@@ -38,7 +40,9 @@ export type Question = {
 
 const createOnboardingQuestions = () => {
     return {
-        about: aboutOnboarding()
+        about: aboutOnboarding(),
+        interests: interestsOnboarding(),
+        founderType: founderTypeOnboarding(),
     }
 }
 

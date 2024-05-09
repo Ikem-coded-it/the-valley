@@ -1,21 +1,28 @@
 import { cn } from "@/utils/util";
-import ChoiceBoxInput from "./choice-box";
+import ChipInput from "./chip";
 import { ErrorMessage } from "formik";
 
-export default function MultipleChoiceBox({ options, ...props }) {
+export default function GroupChipInput({ options, ...props }) {
     return(
         <div className={cn(
-            "w-full grow flex flex-col gap-1 items-start",
+            "w-full grow flex flex-col gap-2 items-start",
             options.className
         )}>
-            <div className="flex w-full flex-col md:flex-row gap-2 items-center md:items-start">
+            <label
+            className="font-[500] text-lg text-[#212630]"
+            htmlFor={props.name}>
+                {props.label}
+            </label>
+
+            <div className="flex w-full gap-2 items-start justify-start flex-wrap">
                 {
                     options.map((option, index) => (
-                        <ChoiceBoxInput
+                        <ChipInput
                         key={option.label}
                         {...option}
                         {...props}
-                        id={`${option.name}.${index}`}
+                        id={`${option.label}.${option.value}`}
+                        label={option.label}
                         value={option.value}
                         />
                     ))

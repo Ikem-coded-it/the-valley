@@ -29,7 +29,7 @@ export default function Header() {
                 <Button
                 text="Login"
                 className="bg-secondary text-white w-[100px] md:w-[154px]"
-                onClick={() => setOnboarding("about")}
+                onClick={() => setOnboarding("login")}
                 />
 
                 {/* <ShowIfLoggedIn/> */}

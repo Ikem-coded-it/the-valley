@@ -1,19 +1,35 @@
 import Input from "./input";
-import MultipleChoiceBox from "./multiple-choice-box";
+import GroupChoiceBox from "./group-choice-box";
 import SelectField from "./select";
 import Checkbox from "./checkbox";
+import GroupChipInput from "./group-chip-input";
+import SearchBar from "@/components/searchbar";
+import RadioInput from "./radio";
+import RadioGroup from "./radio-group";
 
 export default function DynamicInput({...props}) {
     const render = () => {
         switch(props.type) {
-            case "multiple choice-box":
-                return <MultipleChoiceBox options={props?.options} {...props}/>
+            case "group choice-box":
+                return <GroupChoiceBox options={props?.options} {...props}/>
 
             case "select":
                 return <SelectField options={props?.options} {...props}/>
 
             case "checkbox":
                 return <Checkbox options={props?.options} {...props}/>
+
+            case "group chip":
+                return <GroupChipInput options={props?.options} {...props}/>
+
+            case "search":
+                return <SearchBar className="w-full" placeholder="Search here..."/>
+
+            case "radio":
+                return <RadioInput {...props}/>
+
+            case "radio group":
+                return <RadioGroup {...props}/>
 
             default:
                 return <Input {...props}/>
