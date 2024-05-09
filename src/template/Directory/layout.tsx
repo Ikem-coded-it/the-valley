@@ -5,9 +5,8 @@ import DirectoryPageHeader from "./header";
 import FindACofounder from "./find-a-cofounder";
 import Tab from "@/organisms/discovery/tab";
 import SearchFilter from "@/organisms/discovery/search-and-filter";
-import DirectorySidebar from "@/organisms/discovery/siderbar-container";
-import Checkbox from "@/components/chechbox";
-import { industry, regions } from "@/store/directory-filter";
+
+import IndustryBusiness from "@/organisms/discovery/industry-business";
 
 export default function DirectoryRootLayout({
   children,
@@ -19,8 +18,8 @@ export default function DirectoryRootLayout({
       <PageHeader className="min-h-[150px] flex justify-center ">
         <DirectoryPageHeader />
       </PageHeader>
-      <div className="w-full flex justify-between">
-        <div className="w-full max-w-[623px] flex flex-col gap-10">
+      <div className="w-full flex justify-between gap-4 max-[1220px]: flex-col">
+        <div className="w-full max-w-[623px] flex flex-col gap-10 max-[1220px]:order-2">
           <FindACofounder />
           <div>
             <Tab />
@@ -29,30 +28,7 @@ export default function DirectoryRootLayout({
             {children}
           </div>
         </div>
-
-        <div className="w-full max-w-[296px] bg-white rounded-lg  ">
-          <DirectorySidebar filterBy="Industry">
-            {industry.map((x, i) => {
-              return <Checkbox label={x} num={100} key={i} />;
-            })}
-            <div className="px-4 pb-4">
-              <button className="text-[#227a5f] font-medium">
-                See All Option
-              </button>
-            </div>
-          </DirectorySidebar>
-          <DirectorySidebar filterBy="Region" className="border-t">
-            {regions.map((x, i) => {
-              return <Checkbox label={x} num={100} key={i} />;
-            })}
-
-            <div className="px-4 pb-4">
-              <button className="text-[#227a5f] font-medium">
-                See All Option
-              </button>
-            </div>
-          </DirectorySidebar>
-        </div>
+        <IndustryBusiness />
       </div>
     </Page>
   );
