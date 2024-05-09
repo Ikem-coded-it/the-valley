@@ -5,9 +5,9 @@ import DynamicInput from "@/components/form/inputs";
 import Button from "@/components/button";
 import { useApp } from "@/context/app";
 
-export default function FounderType() {
-    const info = createOnboardingQuestions().founderType;
-    console.log("founder type info", info)
+export default function FundingStage() {
+    const info = createOnboardingQuestions().fundingStage;
+    console.log("funding stage info", info)
     const { nextOnboardingStep } = useApp()
 
     const handleSubmit = (values) => {
@@ -16,7 +16,7 @@ export default function FounderType() {
     }
 
     const initialValues = {
-        founder_type: "",
+        funding_stage: "",
     }
 
     return(
