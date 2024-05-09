@@ -5,17 +5,18 @@ import DynamicInput from "@/components/form/inputs";
 import Button from "@/components/button";
 import { useApp } from "@/context/app";
 
-export default function BusinessModel() {
-    const info = createOnboardingQuestions().businessModel;
+export default function Description() {
+    const info = createOnboardingQuestions().description;
+    console.log("description info: ", info)
     const { nextOnboardingStep } = useApp()
 
     const handleSubmit = (values) => {
         console.log(values)
-        nextOnboardingStep()
+        // nextOnboardingStep()
     }
 
     const initialValues = {
-        business_model: [],
+        description: [],
     }
 
     return(

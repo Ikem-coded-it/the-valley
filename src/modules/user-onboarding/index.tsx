@@ -5,6 +5,7 @@ import Interests from "./interests";
 import FounderType from "./founder-type";
 import FundingStage from "./funding-stage";
 import BusinessModel from "./business-model"
+import Description from "./description"
 import { StyledModalBackground } from "@/components/user-onboarding/styles";
 import { useApp } from "@/context/app";
 
@@ -52,6 +53,13 @@ export default function Onboarding() {
                 return(
                     <Modal>
                         <BusinessModel/>
+                    </Modal>
+                )
+
+            case "description":
+                return(
+                    <Modal>
+                        <Description/>
                     </Modal>
                 )
 

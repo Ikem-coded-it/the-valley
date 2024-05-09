@@ -7,7 +7,7 @@ export default function CheckboxGroup({ options, ...props }) {
             {options.map(option => {
                 return(
                     <Checkbox
-                    css="height: 56px;border-bottom: 1px solid #EBEEF3;padding-left: 16px;align-items: center;"
+                    css="height: 56px;border-bottom: 1px solid #EBEEF3;padding: 16px;align-items: center;height: fit-content;"
                     {...option}
                     {...props}
                     />
