@@ -6,6 +6,7 @@ import GroupChipInput from "./group-chip-input";
 import SearchBar from "@/components/searchbar";
 import RadioInput from "./radio";
 import RadioGroup from "./radio-group";
+import CheckboxGroup from "./checkbox-group";
 
 export default function DynamicInput({...props}) {
     const render = () => {
@@ -29,7 +30,10 @@ export default function DynamicInput({...props}) {
                 return <RadioInput {...props}/>
 
             case "radio group":
-                return <RadioGroup {...props}/>
+                return <RadioGroup  options={props?.options} {...props}/>
+
+            case "checkbox group":
+                return <CheckboxGroup  options={props?.options} {...props}/>
 
             default:
                 return <Input {...props}/>

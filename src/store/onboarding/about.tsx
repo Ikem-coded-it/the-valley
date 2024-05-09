@@ -47,8 +47,8 @@ export const aboutOnboarding = () => {
                             {
                                 key: 'looking_for_founder',
                                 type: 'checkbox',
-                                label: 'Im currently looking for a cofounder',
-                                labelDescription: "if you check this box, we'll help you get matched with a cofounder in our community"
+                                label: "I'm currently looking for a cofounder",
+                                labelDescription: "if you check this box, we'll help you get matched with a cofounder in our community",
                             }
                         ]
                     },

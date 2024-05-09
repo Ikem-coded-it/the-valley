@@ -7,20 +7,24 @@ const CheckboxContainer = styled.div`
     justify-content: flex-start;
     align-items: flex-start:
     gap: 10px;
+    ${({css}: any) => css}
 `
 
-export default function Checkbox({ name, label, value, type, ...rest }) {
+export default function Checkbox({ name, label, value, type, css, ...rest }) {
+
+    console.log("checkbox value", value)
     return(
-        <CheckboxContainer>
+        <CheckboxContainer css={css}>
             <Field
             type="checkbox"
             name={name}
-            id={name}
+            value={value}
+            id={`${label}.${value}`}
             {...rest}
-            className="mr-2"
+            className="mr-2"}
             />
 
-            <label htmlFor={name} className="text-base text-[#212630] font-[500]">
+            <label htmlFor={`${label}.${value}`} className="text-base text-[#212630] font-[500]">
                 <div className="flex flex-col justify-start items-start gap-1">
                     <p>{label}</p>
                     {

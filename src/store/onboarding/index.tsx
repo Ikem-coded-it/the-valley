@@ -2,6 +2,7 @@ import { aboutOnboarding } from "./about"
 import { interestsOnboarding } from "./interests"
 import { founderTypeOnboarding } from "./founder-type"
 import { fundingStageOnboarding } from "./funding-stage"
+import { businessModelOnboarding } from "./business-model"
 
 export const onboardingSteps = [
     'login',
@@ -9,7 +10,7 @@ export const onboardingSteps = [
     'interests',
     'founder-type',
     'funding-stage',
-    // 'business-model',
+    'business-model',
     // 'description',
     // 'industry-group',
     // 'agreement',
@@ -45,6 +46,7 @@ const createOnboardingQuestions = () => {
         interests: interestsOnboarding(),
         founderType: founderTypeOnboarding(),
         fundingStage: fundingStageOnboarding(),
+        businessModel: businessModelOnboarding()
     }
 }
 
