@@ -7,12 +7,11 @@ import { useApp } from "@/context/app";
 
 export default function Description() {
     const info = createOnboardingQuestions().description;
-    console.log("description info: ", info)
     const { nextOnboardingStep } = useApp()
 
     const handleSubmit = (values) => {
         console.log(values)
-        // nextOnboardingStep()
+        nextOnboardingStep()
     }
 
     const initialValues = {

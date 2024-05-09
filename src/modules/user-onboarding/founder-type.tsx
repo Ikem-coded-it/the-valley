@@ -7,7 +7,6 @@ import { useApp } from "@/context/app";
 
 export default function FounderType() {
     const info = createOnboardingQuestions().founderType;
-    console.log("founder type info", info)
     const { nextOnboardingStep } = useApp()
 
     const handleSubmit = (values) => {

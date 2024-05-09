@@ -18,8 +18,8 @@ export const StyledModalBackground = styled.section`
 `
 
 export const StyledModal = styled.div`
-    width: 400px;
-    background-color: #F6F7F9;
+    width: ${({ $width }) => $width || 400}px;
+    background-color: ${({$bg}) => $bg || "#F6F7F9"};
     padding: 32px;
     border-radius: 8px;
     gap: 32px;

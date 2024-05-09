@@ -5,8 +5,8 @@ import DynamicInput from "@/components/form/inputs";
 import Button from "@/components/button";
 import { useApp } from "@/context/app";
 
-export default function FundingStage() {
-    const info = createOnboardingQuestions().fundingStage;
+export default function IndustryGroup() {
+    const info = createOnboardingQuestions().industryGroup;
     const { nextOnboardingStep } = useApp()
 
     const handleSubmit = (values) => {
@@ -15,7 +15,7 @@ export default function FundingStage() {
     }
 
     const initialValues = {
-        funding_stage: "",
+        industry_group: [],
     }
 
     return(

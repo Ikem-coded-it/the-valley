@@ -4,6 +4,8 @@ import { founderTypeOnboarding } from "./founder-type"
 import { fundingStageOnboarding } from "./funding-stage"
 import { businessModelOnboarding } from "./business-model"
 import { descriptionOnboarding } from "./description"
+import { industryGroupOnboarding } from "./industry-group"
+import { ethosOnboarding } from "./ethos"
 
 export const onboardingSteps = [
     'login',
@@ -13,8 +15,8 @@ export const onboardingSteps = [
     'funding-stage',
     'business-model',
     'description',
-    // 'industry-group',
-    // 'agreement',
+    'industry-group',
+    'ethos',
     null
 ]
 
@@ -27,7 +29,7 @@ export type OnboardingStepType =
     'business-model' |
     'description' |
     'industry-group' |
-    'agreement' |
+    'ethos' |
     null
 
 export type Question = {
@@ -49,6 +51,8 @@ const createOnboardingQuestions = () => {
         fundingStage: fundingStageOnboarding(),
         businessModel: businessModelOnboarding(),
         description: descriptionOnboarding(),
+        industryGroup: industryGroupOnboarding(),
+        ethos: ethosOnboarding()
     }
 }
 
