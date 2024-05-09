@@ -2,7 +2,7 @@ import SearchBar from "@/components/searchbar";
 
 export default function SearchFilter() {
   return (
-    <div className="bg-white flex justify-center p-4 gap-5 ">
+    <div className="bg-white flex sm:justify-center flex-wrap sm:flex-nowrap p-4 gap-5 ">
       <SearchBar
         placeholder="Search here"
         className="border-[1px] w-full max-w-[353px]"

@@ -18,7 +18,7 @@ export default function DirectoryRootLayout({
       <PageHeader className="min-h-[150px] flex justify-center ">
         <DirectoryPageHeader />
       </PageHeader>
-      <div className="w-full flex justify-between gap-4 max-[1220px]: flex-col">
+      <div className="w-full flex flex-row justify-between gap-4 max-[1220px]:flex-col">
         <div className="w-full max-w-[623px] flex flex-col gap-10 max-[1220px]:order-2">
           <FindACofounder />
           <div>

@@ -12,14 +12,15 @@ export default function IndustryBusiness() {
 
   const [openSubNav, setOpenSubNav] = useState(false);
 
-  useEffect(() => {
-    calculateHeight({ industryRef, regionRef, parentRef, openSubNav });
-  }, [openSubNav]);
-
   return (
-    <div className="w-full min-[1220px]:max-w-[296px] bg-white rounded-lg max-[1220px]:order-1 relative ">
+    <div className="w-full min-[1220px]:max-w-[300px]  bg-white rounded-lg max-[1220px]:order-1 relative ">
       <div className="hidden max-[1220px]:flex gap-4 items-center p-4 border">
-        <button onClick={() => setOpenSubNav(!openSubNav)}>
+        <button
+          onClick={() => {
+            setOpenSubNav(!openSubNav);
+            calculateHeight({ industryRef, regionRef, parentRef, openSubNav });
+          }}
+        >
           <i className="ph ph-list text-2xl"></i>
         </button>
         <p>Industry & Label</p>
@@ -28,7 +29,7 @@ export default function IndustryBusiness() {
         className={cn(
           "bg-white transition-all ease-[cubic-bezier(0.95,0.05,0.795,0.035)] duration-200 max-[1220px]: overflow-hidden w-full",
           {
-            [`absolute z-20`]: openSubNav,
+            [`max-w[1220px]:absolute z-20`]: openSubNav,
           }
         )}
         ref={parentRef}

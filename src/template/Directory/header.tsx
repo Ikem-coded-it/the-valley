@@ -2,7 +2,7 @@ import SearchBar from "@/components/searchbar";
 
 export default function DirectoryPageHeader() {
   return (
-    <div className="flex items-center relative z-20 ">
+    <div className="flex items-center gap-4 flex-wrap md:flex-nowrap relative z-20 ">
       <div>
         <h1 className=" text-white font-semibold text-2xl leading-[33.8px]">
           Directory

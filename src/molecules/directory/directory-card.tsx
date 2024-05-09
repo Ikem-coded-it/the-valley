@@ -6,12 +6,12 @@ export default function DirectoryCard(props: {
   role: string;
 }) {
   return (
-    <Link className="border border-[white]  h-[300px] relative" to={"#"}>
-      <div className="h-full absolute">
+    <Link className="border border-[white]  h-[300px] relative w-full" to={"#"}>
+      <div className="h-full absolute w-full">
         <img
           src={props.imgUrl}
           alt="directory card image"
-          className="h-full object-cover brightness-[0.6] "
+          className="h-full object-cover brightness-[0.6] w-full block "
         />
       </div>
       <div className="relative z-10 h-full flex flex-col justify-end p-4">
