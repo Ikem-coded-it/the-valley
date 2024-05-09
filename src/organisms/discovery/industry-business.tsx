@@ -26,12 +26,9 @@ export default function IndustryBusiness() {
         <p>Industry & Label</p>
       </div>
       <div
-        className={cn(
-          "bg-white transition-all ease-[cubic-bezier(0.95,0.05,0.795,0.035)] duration-200 max-[1220px]: overflow-hidden w-full",
-          {
-            [`max-w[1220px]:absolute z-20`]: openSubNav,
-          }
-        )}
+        className={
+          "bg-white max-[1220px]:h-0 transition-all ease-[cubic-bezier(0.95,0.05,0.795,0.035)] duration-200 max-[1220px]:absolute z-20 overflow-hidden w-full"
+        }
         ref={parentRef}
       >
         <div ref={industryRef}>
