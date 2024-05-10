@@ -5,12 +5,12 @@ const ApplicationRoutes = {
     ALL_COMMUNITIES: "/communities",
     CREATE: "/communities/create",
   },
-  LEADERBOARD: "/leaderboard",
   DIRECTORY: {
     FOUNDERS: "/directory",
     INVESTORS: "investors",
     COMPANIES: "companies",
   },
+  LEADERBOARD: "/leaderboard",
   FIND_A_COFOUNDER: "/find-a-cofounder",
   EVENTS: "/events",
   RESOURCES: "/resources",
@@ -19,6 +19,7 @@ const ApplicationRoutes = {
   SETTINGS: "/profile/:id/settings",
   CREATE_POST: "/createpost",
   COMPANY_HEALTH: "/company-health-checklist",
+  AUTHORIZE: "/authorize/request",
 };
 
 export default ApplicationRoutes;

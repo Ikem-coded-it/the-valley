@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         "secondary": "#227A5F",
+        "fontBlue": "#4C5F7D",
       }
     },
   },

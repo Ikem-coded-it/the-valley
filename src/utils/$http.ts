@@ -1,7 +1,9 @@
 import { AxiosResponse } from "axios";
 import { toast } from "react-toastify";
+import Cookies from 'js-cookie';
 
 export const requestInterceptor = async (config) => {
+  const authCookieId = import.meta.env['VITE_AUTH_COOKIE_ID']
   try {
     if (config.method !== "get" && config.method !== "delete") {
       if (config.data) {
@@ -20,9 +22,9 @@ export const requestInterceptor = async (config) => {
 
     if (!config.headers["authorization"]) {
       if (config.headers.set) {
-        config.headers.set("Authorization", "Bearer " + authToken.get()?.token);
+        config.headers.set("Authorization", "Bearer " + Cookies.get(authCookieId));
       } else {
-        config.headers["authorization"] = `Bearer ${authToken.get()?.token}`;
+        config.headers["authorization"] = `Bearer ${Cookies.get(authCookieId)}`;
       }
     }
   } catch (e) {
@@ -35,17 +37,11 @@ export const responseErrorInterceptor = async (
   axiosResponse,
 ) => {
   const resp = axiosResponse?.response ?? axiosResponse;
-  const skip = ["unsplash.com"];
-  for (const s of skip) {
-    if (resp?.config?.baseURL?.toLowerCase()?.includes(s)) {
-      return axiosResponse;
-    }
-  }
 //   if (resp?.status === 401) {
 //     logoutModal.set(true);
 //   }
   if (!resp?.status) {
-    toast.error("Seems you are experiencing network issues");
+    toast.error("Seems you are experiencing problems with connectivity");
   }
   throw axiosResponse;
 };

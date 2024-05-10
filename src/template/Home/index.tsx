@@ -22,7 +22,7 @@ export default function HomeTemplate() {
             </section>
 
             <section
-            className={`hidden lg:flex min-w-[296px] max-w-[296px] min-h-screen max-h-screen overflow-y-scroll flex-col sticky top-[50px] -bottom-[100px] right-4 rounded-[8px]`}>
+            className={`hidden lg:flex min-w-[296px] max-w-[296px] min-h-screen max-h-screen overflow-y-scroll flex-col sticky top-[50px] -bottom-[100px] -right-6 rounded-[8px]`}>
                 <SideFeeds/>
             </section>
         </Page>
