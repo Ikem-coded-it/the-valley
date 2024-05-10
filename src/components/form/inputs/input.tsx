@@ -9,6 +9,7 @@ const StyledInput = styled.input`
     color: #ADBACC;
     font-weight: 500;
     font-size: 16px;
+    background-color: #FFFFFF;
 `
 
 type InputProps = {

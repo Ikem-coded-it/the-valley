@@ -11,7 +11,6 @@ const RadioContainer = styled.div`
 `
 
 export default function RadioInput({ name, label, value, css, ...rest }) {
-    console.log("error: ", !!rest.error)
     return(
         <RadioContainer css={css as string}>
             <RadioButton

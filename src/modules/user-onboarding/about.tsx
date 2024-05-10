@@ -17,10 +17,10 @@ export default function About() {
     }
 
     const initialValues = {
-        user_role: "",
-        company_name: "",
-        industry: "",
-        company_stage: "",
+        user_role: null,
+        company_name: null,
+        industry: null,
+        company_stage: null,
         looking_for_founder: false
     }
     return(

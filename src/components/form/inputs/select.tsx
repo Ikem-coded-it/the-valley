@@ -14,9 +14,9 @@ export default function SelectField({ name, label, value, type, error, options, 
             id={name}
             name={name}
             {...rest}
-            className="w-[95%] h-[48px] py-3 px-4 border-[1px] border-[#D3D9E4] font-[500] text-base text-[#ADBACC]"
+            className="bg-[#FFFFFF] w-[95%] h-[48px] py-3 px-4 border-[1px] border-[#D3D9E4] font-[500] text-base text-[#ADBACC]"
             >
-                <option value="default">{placeholder}</option>
+                <option value="default" className="bg-[#FFFFFF]">{placeholder}</option>
                 {
                     options.map(({ label, value }) => (
                         <option key={value} value={value}>

@@ -7,6 +7,7 @@ import SearchBar from "@/components/searchbar";
 import RadioInput from "./radio";
 import RadioGroup from "./radio-group";
 import CheckboxGroup from "./checkbox-group";
+import Dropdown from "./dropdown";
 
 export default function DynamicInput({...props}) {
     const render = () => {
@@ -15,7 +16,7 @@ export default function DynamicInput({...props}) {
                 return <GroupChoiceBox options={props?.options} {...props}/>
 
             case "select":
-                return <SelectField options={props?.options} {...props}/>
+                return <Dropdown options={props?.options} {...props}/>
 
             case "checkbox":
                 return <Checkbox options={props?.options} {...props}/>
