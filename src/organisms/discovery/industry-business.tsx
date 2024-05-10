@@ -1,8 +1,7 @@
-import { cn } from "@/utils/util";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import DirectorySidebar from "./siderbar-container";
 import { industry, regions } from "@/store/directory-filter";
-import Checkbox from "@/components/chechbox";
+import Checkbox from "@/components/checkbox";
 import { calculateHeight } from "./responsive-height";
 
 export default function IndustryBusiness() {
@@ -36,11 +35,11 @@ export default function IndustryBusiness() {
             {industry.map((x, i) => {
               return <Checkbox label={x} num={100} key={i} />;
             })}
-            <div className="px-4 pb-4">
+            {/* <div className="px-4 pb-4">
               <button className="text-[#227a5f] font-medium">
                 See All Option
               </button>
-            </div>
+            </div> */}
           </DirectorySidebar>
         </div>
         <div ref={regionRef}>
@@ -49,11 +48,11 @@ export default function IndustryBusiness() {
               return <Checkbox label={x} num={100} key={i} />;
             })}
 
-            <div className="px-4 pb-4">
+            {/* <div className="px-4 pb-4">
               <button className="text-[#227a5f] font-medium">
                 See All Option
               </button>
-            </div>
+            </div> */}
           </DirectorySidebar>
         </div>
       </div>
