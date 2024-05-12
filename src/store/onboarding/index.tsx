@@ -12,10 +12,10 @@ export const onboardingSteps = [
     'about',
     'interests',
     'founder-type',
-    'funding-stage',
+    // 'funding-stage',
     'business-model',
     'description',
-    'industry-group',
+    // 'industry-group',
     'ethos',
     null
 ]

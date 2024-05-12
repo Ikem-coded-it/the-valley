@@ -7,7 +7,7 @@ export default function ContentCard({
     category
 }) {
     return(
-        <div className="overflow-clip min-w-[285px] min-h-[334px] rounded-t-[8px] border-[1px] border-[#EBEEF3] bg-[#FFFFFF] flex flex-col justify-start items-start gap-4">
+        <div className="overflow-clip max-w-[285px] min-h-[334px] rounded-t-[8px] border-[1px] border-[#EBEEF3] bg-[#FFFFFF] flex flex-col justify-start items-start gap-4">
             <img
             src={imageURL}
             alt="marketplace banner"
@@ -23,7 +23,7 @@ export default function ContentCard({
                     </h3>
                 </div>
 
-                <p className="font-[500] text-base text-[#3F4E65]">
+                <p className="hidden md:block font-[500] text-base text-[#3F4E65]">
                     {description}
                 </p>
             </div>

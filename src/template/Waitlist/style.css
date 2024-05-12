@@ -1,0 +1,80 @@
+.landingpage {
+    background: linear-gradient(30deg, #000 20% , #227A5F,#227A5F 70%, #000 );
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: clip;
+    border: 1px solid #11362D;
+}
+.pattop{
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+.patbottom{
+    position:absolute;
+    bottom:0px;
+    left:0;
+    width: 64%;
+z-index: 0;
+}
+
+.banner-img{
+width: auto;
+height:auto;
+top: 0%;
+left: 0;
+border-radius: 14.81580924987793;
+z-index:1;
+max-width: 111%;
+}
+.landingpage h2{
+font-size: 48px;
+font-weight: 600;
+line-height: 58px;
+letter-spacing: 0em;
+text-align: left;
+color:#fff;
+}
+.landingpage p{
+   
+font-size: 18px;
+font-weight: 500;
+line-height: 27px;
+letter-spacing: 0em;
+text-align: left;
+Color: #B6E4D0;
+    }
+   
+
+    @media screen and (max-width:767px) {
+        .landingpage {
+            border: none;
+        }
+       
+        .landingpage h2{
+            font-size: 28px;
+       
+            line-height: 28px;
+           
+            text-align: center;
+          
+            }
+            .landingpage p{
+               
+            font-size: 18px;
+          
+            line-height: 24px;
+            letter-spacing: 0em;
+            text-align: center;
+           
+                }
+           
+        
+    }
+    @media screen and (min-width:389px)  and (max-width:390px){
+        .landingpage{
+            height: 100vh;
+        }
+    }
+  

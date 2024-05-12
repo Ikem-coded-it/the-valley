@@ -7,7 +7,6 @@ export const useApp = () => useContext<any>(AppContext);
 
 
 export default function AppContextProvider({ children }: { children: ReactNode }) {
-    const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState<boolean>(false)
     const [onboarding, setOnboarding] = useState<OnboardingStepType>(null);
 
     const nextOnboardingStep = () => {
@@ -16,8 +15,6 @@ export default function AppContextProvider({ children }: { children: ReactNode }
     }
 
     const values = {
-        isMobileSidebarOpen,
-        setIsMobileSidebarOpen,
         onboarding,
         setOnboarding,
         nextOnboardingStep

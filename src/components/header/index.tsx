@@ -3,13 +3,19 @@ import ValleyLogo from "../logo";
 import Button from "../button";
 import Avatar from "../avatar";
 import Sidebar from "../sidebar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { cn } from "../../utils/util";
 import { useApp } from "@/context/app";
 
 export default function Header() {
     const [open, setOpen] = useState(false)
-    const { setOnboarding } = useApp()
+    const {setOnboarding} = useApp()
+    const {pathname} = useLocation();
+
+    useEffect(() => {
+        setOpen(false)
+    }, [pathname])
     return(
         <div className="fixed z-50 top-0 left-0 h-[80px] w-full py-[16px] px-[15px] md:px-[30px] lg:px-[50px] xl:px-[80px] flex justify-between items-center gap-[20px] border-[1px] border-[#EBEEF3] bg-[#FFFFFF]">
             <ValleyLogo/>

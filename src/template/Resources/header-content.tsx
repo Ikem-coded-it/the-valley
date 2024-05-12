@@ -1,4 +1,3 @@
-import SearchBar from "../../components/searchbar";
 import ContentFilter from "../../components/page-content/content-filter";
 
 export default function ResourcesHeaderContent() {
@@ -13,8 +12,6 @@ export default function ResourcesHeaderContent() {
             another information
           </p>
         </div>
-
-        <SearchBar className="w-[247px]" />
       </div>
 
       <ContentFilter type="dark" />

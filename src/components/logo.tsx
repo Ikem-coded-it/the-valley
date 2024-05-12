@@ -1,11 +1,13 @@
-
+import { Link } from "react-router-dom"
 
 export default function ValleyLogo() {
     return(
-        <a href="/">
-            <span className="text-[#000000] font-extrabold text-[27px]">
-                The Valley.
-            </span>
-        </a>
+        <Link to="/home">
+            <img
+            src="/logos/black-logo.png"
+            alt="company logo"
+            className="w-[137px] h-10 object-contain object-center"
+            />
+        </Link>
     )
 }
