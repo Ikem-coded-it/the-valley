@@ -53,7 +53,7 @@ const LoginFormComponent = () => {
         </div>
         <div className="mb-4">
           <select
-            className=" input-industry shadow  border rounded-[8px] w-full py-[14px] px-[16px] text-gray-700 leading-base text-base  focus:outline-none focus:shadow-outline"
+            className=" input-industry shadow  border rounded-[8px] w-full py-[14px] px-[16px] text-gray-700 leading-base text-base  focus:outline-none focus:shadow-outline bg-[#ffffff]"
             id="industry"
             name="industry"
             value={industry}
