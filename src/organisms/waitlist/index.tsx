@@ -2,11 +2,26 @@ import { useState } from "react";
 import axios from "axios";
 import "./style.css";
 import { toast } from "react-toastify"
+import { useEffect } from "react";
 
 const LoginFormComponent = () => {
   const [email, setEmail] = useState("");
   const [industry, setIndustry] = useState("");
   const [buttonText, setbuttonText] = useState("Join Waitlist");
+  const API_URL = import.meta.env.VITE_BASE_API_URL
+
+  useEffect(() => {
+    async function getWaitlist() {
+      try{
+        const response = await axios.get("http://localhost:3333/v1/waitlist")
+        console.log(response)
+      }catch (e) {
+        console.log("error", e)
+      }
+    }
+
+    // getWaitlist()
+  }, [])
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -16,24 +31,18 @@ const LoginFormComponent = () => {
     setIndustry(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast.success("You've joined the waitlist successfully")
-    // const email = e.target.email.value;
-    // const industry = e.target.industry.value;
-    // const data = { email, industry };
-    // console.log("data >>>", data);
-    // axios
-    //   .post("https://thevalley-api.azurewebsites.net/api/waitlist", data)
-    //   .then((response) => {
-    //     console.log(response);
-    //     setbuttonText("Thanks for joining the waitlist!");
-    //     //navigate('/dashboard');
-    //     //e.target.reset();
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    const email = e.target.email.value;
+    const industry = e.target.industry.value;
+    const data = { email, industry };
+    const response = await axios.post(`${API_URL}/waitlist`, data)
+    if(response.data === "Added to waitlist")
+      return toast.success("You've joined the waitlist successfully")
+
+    if(response.data === "Already added to waitlist")
+      return toast.success(response.data)
+      
   };
 
   return (
