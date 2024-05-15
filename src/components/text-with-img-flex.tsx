@@ -21,7 +21,7 @@ export default function TextWithImgFlex({
 
       <div>
         <h1 className="font-semibold text-[#212630]">{title}</h1>
-        <p className="font-medium text-[#5A6F8C]">created {created} ago</p>
+        <p className="font-medium text-[#5A6F8C]">created {created} ago   </p>
       </div>
     </div>
   );

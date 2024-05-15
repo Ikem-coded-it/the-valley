@@ -3,7 +3,8 @@ const ApplicationRoutes = {
   HOME: "/home",
   COMMUNITIES: {
     ALL_COMMUNITIES: "/communities",
-    CREATE: "/communities/create",
+    CREATE: "create",
+    SINGLE_COMMUNITIES: ":id",
   },
   DIRECTORY: {
     FOUNDERS: "/directory",
