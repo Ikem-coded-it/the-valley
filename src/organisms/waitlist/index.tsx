@@ -14,7 +14,7 @@ const LoginFormComponent = () => {
     async function getWaitlist() {
       console.log("here")
       try{
-        const response = await axios.get("https://thevalley-adonis.azurewebsites.net/waitlist", {withCredentials: true})
+        const response = await axios.get("https://thevalley-adonis.azurewebsites.net/v1/waitlist", {withCredentials: true})
         console.log(response)
       }catch (e) {
         console.log("error", e)
