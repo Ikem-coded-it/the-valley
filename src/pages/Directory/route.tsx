@@ -3,7 +3,6 @@ import ApplicationRoutes from "@/config/routes";
 import { mockCompanies } from "@/mock/companies";
 import { mockFounders } from "@/mock/founders";
 import { mockInvestors } from "@/mock/investors";
-import DirectoryCard from "@/molecules/directory/directory-card";
 import GridLayout from "@/organisms/discovery/grid-layout";
 import DirectoryRootLayout from "@/template/Directory/layout";
 import { Outlet } from "react-router-dom";
