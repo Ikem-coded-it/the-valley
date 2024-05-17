@@ -10,9 +10,9 @@ export default function Login() {
     .replace(":redirectURI", encodeURIComponent(REDIRECT_URI))
 
     const handleLinkedinLogin = () => {
-        nextOnboardingStep()
-        // console.log("LINKED_URL",LINKED_URL);
-        // window.location.href = LINKED_URL
+        // nextOnboardingStep()
+        console.log("LINKED_URL",LINKED_URL);
+        window.location.href = LINKED_URL
     }
 
     return(

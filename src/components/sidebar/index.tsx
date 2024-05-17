@@ -2,14 +2,10 @@ import { menu, recentCommunities, recentChats, extraMenuOptions } from "../../st
 import { cn } from "../../utils/util";
 import Button from "../button";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
 
 export default function Sidebar({className}: { className: string }) {
     const { pathname: active } = useLocation()
 
-    useEffect(() => {
-        console.log("path", active)
-    }, [])
     return(
         <aside className={cn(
             "sidebar lg:min-w-[326px] xl:min-w-[376px] max-w-[376px] border-[1px] border-[#EBEEF3] pl-[15px] md:pl-[30px] lg:pl-[50px] xl:pl-[80px] py-6 bg-[#FFFFFF] flex flex-col items-start justify-start gap-6 overflow-y-auto transition duration-[.5s] ease-in-out z-40",
