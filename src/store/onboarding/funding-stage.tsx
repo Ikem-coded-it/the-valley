@@ -6,12 +6,12 @@ export const fundingStageOnboarding = () => {
         key: "funding_stage",
         type: "radio group",
         options: [
-            {label: "Pre seed", value: "pre seed"},
-            {label: "Seed", value: "seed"},
+            {label: "Pre seed", value: "Pre Seed"},
+            {label: "Seed", value: "Seed"},
             {label: "Series A", value: "Series A"},
             {label: "Series B", value: "Series B"},
             {label: "Series C+", value: "Series C+"},
-            {label: "Bootstrapped", value: "bootstrapped"},
+            {label: "Bootstrapped", value: "Bootstrapped"},
             {label: "Other", value: "other"},
         ]
     }
