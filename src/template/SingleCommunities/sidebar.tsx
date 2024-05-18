@@ -51,6 +51,7 @@ export default function SingleCommunitiesSideBar({
         </SectionContainer>
       </div>{" "}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <div className="mt-4">
         <SectionContainer
@@ -78,6 +79,8 @@ export default function SingleCommunitiesSideBar({
         </SectionContainer>
       </div>
 >>>>>>> d9c637f (fix communities styling isuue)
+=======
+>>>>>>> a67312d (style bug fix)
     </div>
   );
 }
