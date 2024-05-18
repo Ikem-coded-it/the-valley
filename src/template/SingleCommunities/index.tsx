@@ -38,7 +38,7 @@ export default function SingleCommunities() {
         </div> */}
 
         <div className="flex justify-between gap-4  my-4 relative">
-          <div className={cn("w-full lg:max-w-[695px]")}>
+          <div className={cn("w-full lg:max-w-[695px] flex flex-col gap-4")}>
             <PostInputBox />
 
             <Posts />

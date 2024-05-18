@@ -48,31 +48,6 @@ export default function SingleCommunitiesSideBar({
           />
         </SectionContainer>
       </div>{" "}
-      <div className="mt-4">
-        <SectionContainer
-          title="Topics 📌 "
-          link={{
-            text: "See all",
-            path: "#",
-          }}
-        >
-          <TopicText
-            title="Agriculture & Biotech"
-            created={"1 hour"}
-            numOfPost={200}
-          />{" "}
-          <TopicText
-            title="Crypto & blockchain"
-            created={"1 hour"}
-            numOfPost={200}
-          />{" "}
-          <TopicText
-            title="Energy & climate"
-            created={"1 hour"}
-            numOfPost={200}
-          />
-        </SectionContainer>
-      </div>
     </div>
   );
 }
