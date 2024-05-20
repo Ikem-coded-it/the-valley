@@ -3,15 +3,15 @@ import { persistentMap } from "@nanostores/persistent";
 // import { atom } from "nanostores";
 
 // @ts-ignore
-export const authToken = persistentMap("@", null);
+export const authToken = persistentMap("@thevalleytoken", null);
 
 // @ts-ignore
-export const userAtomMap = persistentMap("@chreestis", null);
+export const userAtomMap = persistentMap("@thevalleyusermap", null);
 export const saveUser = (user) => {
   if (!user) {
-    localStorage.removeItem("persistentMapUser");
+    localStorage.removeItem("thevalleyuser");
     return userAtomMap.set(null);
   }
-  localStorage.setItem("persistentMapUser", JSON.stringify(user));
+  localStorage.setItem("thevalleyuser", JSON.stringify(user));
   userAtomMap.set(user as unknown);
 };

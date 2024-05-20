@@ -7,11 +7,15 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { cn } from "../../utils/util";
 import { useApp } from "@/context/app";
+import { useAuth } from "@/context/Auth";
+import { Link } from "react-router-dom";
+import ApplicationRoutes from "@/config/routes";
 
 export default function Header() {
     const [open, setOpen] = useState(false)
     const {setOnboarding} = useApp()
     const {pathname} = useLocation();
+    const { isLoggedIn } = useAuth();
 
     useEffect(() => {
         setOpen(false)
@@ -32,13 +36,17 @@ export default function Header() {
                 onClick={() => setOpen(!open)}
                 />
 
-                <Button
-                text="Login"
-                className="bg-secondary text-white w-[100px] md:w-[154px]"
-                onClick={() => setOnboarding("login")}
-                />
-
-                {/* <ShowIfLoggedIn/> */}
+                {
+                    isLoggedIn === true ? (
+                        <ShowIfLoggedIn/>
+                    ) : (
+                        <Button
+                        text="Login"
+                        className="bg-secondary text-white w-[100px] md:w-[154px]"
+                        onClick={() => setOnboarding("login")}
+                        />
+                    )
+                }
             </div>
 
             <Sidebar
@@ -55,6 +63,7 @@ export default function Header() {
 }
 
 function ShowIfLoggedIn() {
+    const [openMiniMenu, setOpenMiniMenu] = useState<boolean>(false)
     return(
         <div className="flex justify-start items-center gap-4">
             <Button
@@ -68,7 +77,36 @@ function ShowIfLoggedIn() {
             className="text-base border-[#ADBACC] hidden lg:flex"
             />
 
-            <Avatar avatarURL="/avatar.jpg"/>
+            <button
+            className="relative"
+            onClick={() => setOpenMiniMenu(!openMiniMenu)}
+            >
+                <Avatar profileLink="#"/>
+
+                <MiniMenu open={openMiniMenu}/>
+            </button>
+        </div>
+    )
+}
+
+function MiniMenu({ open }: {open: boolean}) {
+    return(
+        <div className={cn(
+            "w-[130px] bg-[#ffffff] flex flex-col justify-start items-start gap-[10px] absolute bottom-[-90px] right-0 h-[90px] p-2 rounded-[8px] shadow-md z-40",
+            {
+                "opacity-0 pointer-events-none": !open,
+                "opacity-1 pointer-events-auto": open,
+            }
+        )}>
+            <Link to="#" className="text-base font-semibold text-slate-800 flex justify-center items-center gap-1">
+                <i className="ph ph-user text-lg"></i>
+                Profile
+            </Link>
+
+            <Link to={ApplicationRoutes.USER.LOGOUT} className="text-base font-semibold text-slate-800 flex justify-center items-center gap-1">
+                <i className="ph ph-sign-out text-red-500 text-lg"></i>
+                Logout
+            </Link>
         </div>
     )
 }

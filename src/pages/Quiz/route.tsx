@@ -3,9 +3,6 @@ import ApplicationRoutes from "@/config/routes";
 
 const route = {
     path: ApplicationRoutes.QUIZ,
-    element: <ComingSoonPageTemplate pageName="Quiz"/>,
-    loader: async () => {return null},
+    element: <ComingSoonPageTemplate pageName="Quiz"/>
   };
-  const handle = (value) => `${route.path}/${value}`;
   export default route;
-  export { handle };

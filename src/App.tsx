@@ -22,19 +22,25 @@ import HomePageRoute from "@/pages/Home/route";
 import NotFound from "@/template/not-found";
 import DirectoryPageRoute from "@/pages/Directory/route";
 import QuizPageRoute from "@/pages/Quiz/route";
-
+import LogoutPageRoute from "@/pages/Logout/route"
 import AuthorizationRoute from "@/pages/Authorize/route";
 import CommunitiesPageRoute from "@/pages/Communities/route";
 
 const router = createBrowserRouter([
+  // guest routes
   WaitlistPageRoute,
   AuthorizationRoute,
+  LogoutPageRoute,
+  
+  // dashboard routes
   {
     path: "/",
     element: (
-      <DashboardRootLayout>
-        <Outlet />
-      </DashboardRootLayout>
+      <AuthProvider>
+        <DashboardRootLayout>
+          <Outlet />
+        </DashboardRootLayout>
+      </AuthProvider>
     ),
     children: [
       {
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
       CommunitiesPageRoute,
     ],
   },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
 ]);
 
 function App() {
@@ -60,15 +70,13 @@ function App() {
           pt: Tailwind,
         }}
       >
-        <AuthProvider>
-          <AppContextProvider>
-            <ThemeProvider theme={theme}>
-              <RouterProvider router={router} />
-              <Onboarding />
-              <Toast />
-            </ThemeProvider>
-          </AppContextProvider>
-        </AuthProvider>
+        <AppContextProvider>
+          <ThemeProvider theme={theme}>
+            <RouterProvider router={router} />
+            <Onboarding />
+            <Toast />
+          </ThemeProvider>
+        </AppContextProvider>
       </PrimeReactProvider>
     </>
   );

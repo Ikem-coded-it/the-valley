@@ -4,7 +4,7 @@ export default function PostInputBox() {
     return(
         <section className="w-full h-20 px-[32px] py-4 bg-[#FFFFFF] rounded-[8px]">
             <div className="w-full h-full flex justify-start items-center gap-[21px]">
-                <Avatar avatarURL="/avatar.jpg"/>
+                <Avatar/>
 
                 <form className="h-full grow shrink">
                     <input

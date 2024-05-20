@@ -22,8 +22,8 @@ export const { $http, $axios } = cacheSetup({
 
 export const Axios = axios;
 
-// $http.interceptors.request.use(requestInterceptor);
+$http.interceptors.request.use(requestInterceptor);
 
-$http.interceptors.response.use((res) => res, responseErrorInterceptor);
+// $http.interceptors.response.use((res) => res, responseErrorInterceptor);
 
 export default $http;

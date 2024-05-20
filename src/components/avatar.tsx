@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
+import useUser from "@/hooks/useUser";
 
-export default function Avatar({ profileLink, avatarURL }: {profileLink?: string, avatarURL: string}) {
+export default function Avatar({ profileLink, url }: {profileLink?: string, url?: string}) {
+    const { user } = useUser()
     return(
         <Link to={profileLink ?? "#"}>
             <div className="relative h-fit w-fit">
                 <img
                 className="w-[48PX] h-[48px] rounded-[50%] object-cover object-center"
-                src={avatarURL ?? "/avatar.jpg"}
+                src={url ?? user?.avatarUrl ?? "/default-avatar.png"}
                 alt="avatar"
                 />
 

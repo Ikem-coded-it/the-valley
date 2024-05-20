@@ -1,17 +1,15 @@
 import Button from "@/components/button";
-import { useApp } from "@/context/app";
 
 export default function Login() {
-    const { nextOnboardingStep } = useApp();
     const CLIENT_ID = import.meta.env['VITE_LINKEDIN_CLIENT_ID'];
     const REDIRECT_URI = import.meta.env['VITE_LINKEDIN_CALLBACK_URL'];
+    const stateValue = "somestatevalue"
     const LINKED_URL = import.meta.env['VITE_LINKEDIN_URL']
     .replace(":clientId", CLIENT_ID)
-    .replace(":redirectURI", encodeURIComponent(REDIRECT_URI))
+    .replace(":redirectURI", REDIRECT_URI)
+    .replace(":state", stateValue)
 
     const handleLinkedinLogin = () => {
-        // nextOnboardingStep()
-        console.log("LINKED_URL",LINKED_URL);
         window.location.href = LINKED_URL
     }
 

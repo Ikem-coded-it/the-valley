@@ -2,16 +2,18 @@ import { menu, recentCommunities, recentChats, extraMenuOptions } from "../../st
 import { cn } from "../../utils/util";
 import Button from "../button";
 import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "@/context/Auth";
 
 export default function Sidebar({className}: { className: string }) {
     const { pathname: active } = useLocation()
+    const { isLoggedIn } = useAuth()
 
     return(
         <aside className={cn(
             "sidebar lg:min-w-[326px] xl:min-w-[376px] max-w-[376px] border-[1px] border-[#EBEEF3] pl-[15px] md:pl-[30px] lg:pl-[50px] xl:pl-[80px] py-6 bg-[#FFFFFF] flex flex-col items-start justify-start gap-6 overflow-y-auto transition duration-[.5s] ease-in-out z-40",
             className
         )}>
-            <div className="flex lg:hidden justify-start items-center gap-4">
+            {isLoggedIn && <div className="flex lg:hidden justify-start items-center gap-4">
                 <Button
                 icon={<i className="ph ph-plus"></i>}
                 text="Create Post"
@@ -22,7 +24,7 @@ export default function Sidebar({className}: { className: string }) {
                 icon={<i className="ph ph-chat-circle-dots text-[#ADBACC] text-[20px]"></i>}
                 className="text-base border-[#ADBACC]"
                 />
-            </div>
+            </div>}
 
             <nav className="w-[256px] h-fit flex flex-col justify-start gap-12">
                 <ul className="flex flex-col gap-2 items-start justify-start w-full">

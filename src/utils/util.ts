@@ -20,3 +20,7 @@ export const truncateString = (str, num) => {
       return str.substring(0, num) + '...';
   }
 }
+
+export const isObjectEmpty = (obj: Object | null) => {
+  return Object.keys(obj ?? {}).length === 0;
+};

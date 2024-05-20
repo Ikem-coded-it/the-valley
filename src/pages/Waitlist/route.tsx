@@ -3,9 +3,6 @@ import ApplicationRoutes from "@/config/routes";
 
 const route = {
     path: ApplicationRoutes.LANDING,
-    element: <WaitlistPageTemplate/>,
-    loader: async () => {return null},
+    element: <WaitlistPageTemplate/>
   };
-  const handle = (value) => `${route.path}/${value}`;
   export default route;
-  export { handle };

@@ -20,7 +20,10 @@ const ApplicationRoutes = {
   SETTINGS: "/profile/:id/settings",
   CREATE_POST: "/createpost",
   COMPANY_HEALTH: "/company-health-checklist",
-  AUTHORIZE: "/authorize/request",
+  USER: {
+    AUTHORIZE: "/authorize/request",
+    LOGOUT: "/auth/logout",
+  }
 };
 
 export default ApplicationRoutes;
