@@ -31,6 +31,8 @@ jobs:
           app_location: "/dist" # App source code path
           api_location: "" # Api source code path - optional
           output_location: "build" # Built app content directory - optional
+        env:
+          VITE_BASE_API_URL: "http://ec2-16-170-219-75.eu-north-1.compute.amazonaws.com:3333/v1"
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
