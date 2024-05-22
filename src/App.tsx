@@ -15,40 +15,40 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 // Routes
 import WaitlistPageRoute from "@/pages/Waitlist/route";
-import DashboardRootLayout from "./template/layout";
-import ResourcesPageRoute from "@/pages/Resources/route";
-import MarketPlacesPageRoute from "@/pages/Marketplaces/route";
-import HomePageRoute from "@/pages/Home/route";
-import NotFound from "@/template/not-found";
-import DirectoryPageRoute from "@/pages/Directory/route";
-import QuizPageRoute from "@/pages/Quiz/route";
+// import DashboardRootLayout from "./template/layout";
+// import ResourcesPageRoute from "@/pages/Resources/route";
+// import MarketPlacesPageRoute from "@/pages/Marketplaces/route";
+// import HomePageRoute from "@/pages/Home/route";
+// import NotFound from "@/template/not-found";
+// import DirectoryPageRoute from "@/pages/Directory/route";
+// import QuizPageRoute from "@/pages/Quiz/route";
 
-import AuthorizationRoute from "@/pages/Authorize/route";
-import CommunitiesPageRoute from "@/pages/Communities/route";
+// import AuthorizationRoute from "@/pages/Authorize/route";
+// import CommunitiesPageRoute from "@/pages/Communities/route";
 
 const router = createBrowserRouter([
   WaitlistPageRoute,
-  AuthorizationRoute,
-  {
-    path: "/",
-    element: (
-      <DashboardRootLayout>
-        <Outlet />
-      </DashboardRootLayout>
-    ),
-    children: [
-      {
-        path: "*",
-        element: <NotFound />,
-      },
-      HomePageRoute,
-      MarketPlacesPageRoute,
-      ResourcesPageRoute,
-      DirectoryPageRoute,
-      QuizPageRoute,
-      CommunitiesPageRoute,
-    ],
-  },
+  // AuthorizationRoute,
+  // {
+  //   path: "/",
+  //   element: (
+  //     <DashboardRootLayout>
+  //       <Outlet />
+  //     </DashboardRootLayout>
+  //   ),
+  //   children: [
+  //     {
+  //       path: "*",
+  //       element: <NotFound />,
+  //     },
+  //     HomePageRoute,
+  //     MarketPlacesPageRoute,
+  //     ResourcesPageRoute,
+  //     DirectoryPageRoute,
+  //     QuizPageRoute,
+  //     CommunitiesPageRoute,
+  //   ],
+  // },
 ]);
 
 function App() {
