@@ -20,7 +20,7 @@ const LoginFormComponent = () => {
       }
     }
 
-    getWaitlist()
+    // getWaitlist()
   }, [])
 
   const handleEmailChange = (e) => {
