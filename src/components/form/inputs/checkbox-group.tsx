@@ -8,7 +8,7 @@ export default function CheckboxGroup({ options, ...props }) {
                 return(
                     <Checkbox
                     key={idx}
-                    css="height: 56px;border-bottom: 1px solid #EBEEF3;padding: 16px;align-items: center;height: fit-content;"
+                    $css="height: 56px;border-bottom: 1px solid #EBEEF3;padding: 16px;align-items: center;height: fit-content;"
                     {...option}
                     {...props}
                     />
@@ -17,7 +17,7 @@ export default function CheckboxGroup({ options, ...props }) {
 
             <ErrorMessage
             component={'p'}
-            className={"text-sm text-red-400"}
+            className={"text-sm text-red-400 ml-[20px]"}
             name={props.name}
             />
         </div>

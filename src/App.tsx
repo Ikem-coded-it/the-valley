@@ -4,7 +4,7 @@ import "./App.css";
 import { PrimeReactProvider } from "primereact/api";
 import Toast from "@/components/toast";
 import { ThemeProvider } from "styled-components";
-import AppContextProvider from "./context/app";
+import OnboardingContextProvider from "./context/Onboarding";
 import AuthProvider from "./context/Auth";
 import Onboarding from "./modules/user-onboarding";
 import { theme } from "./theme/styled-components";
@@ -70,13 +70,13 @@ function App() {
           pt: Tailwind,
         }}
       >
-        <AppContextProvider>
+        <OnboardingContextProvider>
           <ThemeProvider theme={theme}>
             <RouterProvider router={router} />
             <Onboarding />
             <Toast />
           </ThemeProvider>
-        </AppContextProvider>
+        </OnboardingContextProvider>
       </PrimeReactProvider>
     </>
   );

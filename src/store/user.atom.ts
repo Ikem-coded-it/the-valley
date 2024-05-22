@@ -15,3 +15,10 @@ export const saveUser = (user) => {
   localStorage.setItem("thevalleyuser", JSON.stringify(user));
   userAtomMap.set(user as unknown);
 };
+
+
+export const logout = () => {
+  authToken.set({})
+  userAtomMap.set(null)
+  localStorage.removeItem("thevalleyuser")
+}

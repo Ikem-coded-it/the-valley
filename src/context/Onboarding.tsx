@@ -1,13 +1,14 @@
 import { ReactNode, createContext, useContext, useState } from "react";
 import { onboardingSteps, OnboardingStepType } from "@/store/onboarding";
 
-export const AppContext = createContext({})
+export const OnboardingContext = createContext({})
 
-export const useApp = () => useContext<any>(AppContext);
+export const useOnboarding = () => useContext<any>(OnboardingContext);
 
 
-export default function AppContextProvider({ children }: { children: ReactNode }) {
+export default function OnboardingContextProvider({ children }: { children: ReactNode }) {
     const [onboarding, setOnboarding] = useState<OnboardingStepType>(null);
+    const [onboardingValues, setOnboardingValues] = useState({})
 
     const nextOnboardingStep = () => {
         const currentStep = onboarding 
@@ -17,11 +18,13 @@ export default function AppContextProvider({ children }: { children: ReactNode }
     const values = {
         onboarding,
         setOnboarding,
-        nextOnboardingStep
+        nextOnboardingStep,
+        onboardingValues,
+        setOnboardingValues
     }
     return(
-        <AppContext.Provider value={values}>
+        <OnboardingContext.Provider value={values}>
             { children }
-        </AppContext.Provider>
+        </OnboardingContext.Provider>
     )
 }

@@ -9,14 +9,14 @@ const CheckboxContainer = styled.div`
     justify-content: flex-start;
     align-items: flex-start:
     gap: 10px;
-    ${({css}: any) => css}
+    ${({$css}: any) => $css}
 `
 
-export default function Checkbox({ name, label, value, type, css, ...rest }) {
+export default function Checkbox({ name, label, value, type, $css, ...rest }) {
     const [checked, setChecked] = useState<boolean>()
 
     return(
-        <CheckboxContainer css={css}>
+        <CheckboxContainer $css={$css}>
             <div className="mr-2">
                 <Field
                 type="checkbox"
