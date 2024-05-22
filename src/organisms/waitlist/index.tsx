@@ -12,7 +12,6 @@ const LoginFormComponent = () => {
 
   useEffect(() => {
     async function getWaitlist() {
-      console.log("here")
       try{
         const response = await axios.get(`${API_URL}/waitlist`)
         console.log(response)
