@@ -6,12 +6,16 @@ import { useOnboarding } from "@/context/Onboarding";
 // import { objectToFormData } from "@/utils/formatter";
 import userService from "@/services/user.service";
 import { toast } from "react-toastify";
+import { useState } from "react";
+import { saveUser } from "@/store/user.atom";
 
 export default function Ethos() {
     const info = createOnboardingQuestions().ethos;
     const { nextOnboardingStep, onboardingValues } = useOnboarding()
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
     const agree = async() => {
+        setIsSubmitting(true)
         console.log("all values: ", onboardingValues)
         let payload
         if(onboardingValues?.user_role === "founder") {
@@ -42,10 +46,13 @@ export default function Ethos() {
         try {
             const data = await userService.saveOnboardingData(payload)
             if(data.status == 201) {
+                setIsSubmitting(false)
+                saveUser(data.user)
                 toast.success(data.message)
+                return nextOnboardingStep()
             }
-            return nextOnboardingStep()
         } catch (error) {
+            console.log("onboarding error: ", error)
             toast.error("Failed to complete onboarding")
         }
     }
@@ -63,7 +70,8 @@ export default function Ethos() {
                 />
 
                 <Button
-                className="bg-secondary w-full text-white border-none"
+                className="bg-secondary w-full text-white border-none disabled:bg-green-300"
+                disabled={isSubmitting}
                 onClick={agree}
                 text="I Agree"
                 />
