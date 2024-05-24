@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from "axios";
 
 // Providers
 import { PrimeReactProvider } from "primereact/api";
@@ -25,6 +26,7 @@ import QuizPageRoute from "@/pages/Quiz/route";
 import LogoutPageRoute from "@/pages/Logout/route"
 import AuthorizationRoute from "@/pages/Authorize/route";
 import CommunitiesPageRoute from "@/pages/Communities/route";
+import { useEffect } from "react";
 
 const router = createBrowserRouter([
   // guest routes
@@ -62,6 +64,24 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const API_URL = import.meta.env['VITE_BASE_API_URL'];
+
+  useEffect(() => {
+    // start render service ahead of time
+    (async () => {
+      if(API_URL.includes('onrender')) {
+        try {
+          const res = await axios.get(API_URL.replace("v1", ""))
+          if(res.status === 200) alert("Server running...")
+          else
+            alert("Failed to start the server")
+        } catch (error) {
+          alert("There was a problem starting the server")
+        }
+      }
+    })()
+  }, [])
+
   return (
     <>
       <PrimeReactProvider

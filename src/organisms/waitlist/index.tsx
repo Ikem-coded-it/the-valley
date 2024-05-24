@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import "./style.css";
 import { toast } from "react-toastify"
 import { useEffect } from "react";
@@ -12,7 +11,6 @@ const LoginFormComponent = () => {
 
   useEffect(() => {
     async function getWaitlist() {
-      console.log("here")
       try{
         const response = await $http.get(`/waitlist`)
         console.log(response)
@@ -21,7 +19,7 @@ const LoginFormComponent = () => {
       }
     }
 
-    getWaitlist()
+    // getWaitlist()
   }, [])
 
   const handleEmailChange = (e) => {

@@ -19,6 +19,8 @@ export default function DashboardRootLayout({ children }: { children: ReactNode 
                 if(!me?.onboardingDataId) return setOnboarding('about')
             } catch (error) {
                 console.log(error)
+                if(error?.response?.statusText === "Unauthorized")
+                    return setOnboarding('login')
             }
         })()
     }, [isLoggedIn])
