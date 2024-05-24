@@ -1,5 +1,6 @@
 import "./App.css";
 import axios from "axios";
+import { toast } from "react-toastify"
 
 // Providers
 import { PrimeReactProvider } from "primereact/api";
@@ -73,11 +74,11 @@ function App() {
       if(API_URL.includes('onrender')) {
         try {
           const res = await axios.get(API_URL.replace("v1", ""))
-          if(res.status === 200) alert("Server running...")
+          if(res.status === 200) return toast.success("Server running...")
           else
-            alert("Failed to start the server")
+            return toast.error("Failed to start the server")
         } catch (error) {
-          alert("There was a problem starting the server")
+          return toast.error("There was a problem starting the server")
         }
       }
     })()
