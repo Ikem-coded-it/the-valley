@@ -70,7 +70,7 @@ export default function Ethos() {
                 />
 
                 <Button
-                className="bg-secondary w-full text-white border-none disabled:bg-green-300"
+                className="bg-secondary w-full text-white border-none disabled:bg-[#4fe7ba]"
                 disabled={isSubmitting}
                 onClick={agree}
                 text="I Agree"

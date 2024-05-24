@@ -8,8 +8,12 @@
     font-size:18px;
     line-height: 27px;
     text-align: center;
-
 }
+
+.button-join:disabled {
+    background: #4fe7ba;
+}
+
 .input-industry ,.input-email{
     border-radius: 8px;
     width: 100%;

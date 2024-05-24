@@ -8,6 +8,7 @@ const LoginFormComponent = () => {
   const [email, setEmail] = useState("");
   const [industry, setIndustry] = useState("");
   const [buttonText, setbuttonText] = useState("Join Waitlist");
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     async function getWaitlist() {
@@ -32,15 +33,20 @@ const LoginFormComponent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true)
     const email = e.target.email.value;
     const industry = e.target.industry.value;
     const data = { email, industry };
     const response = await $http.post(`/waitlist`, data)
-    if(response.data === "Added to waitlist")
-      return toast.success("You've joined the waitlist successfully")
+    if(response.data === "Added to waitlist") {
+      toast.success("You've joined the waitlist successfully")
+      return setSubmitting(false)
+    }
 
-    if(response.data === "Already added to waitlist")
-      return toast.success(response.data)
+    if(response.data === "Already added to waitlist") {
+      toast.error(response.data)
+      return setSubmitting(false)
+    }
       
   };
 
@@ -187,6 +193,7 @@ const LoginFormComponent = () => {
           <button
             className="button-join text-white font-bold py-[14px] px-[16px] rounded focus:outline-none focus:shadow-outline"
             type="submit"
+            disabled={submitting}
           >
             {buttonText}
           </button>
