@@ -9,26 +9,24 @@ import Overlay from "@/components/overlay";
 import CreateCommunity from "@/organisms/Communities/create-community";
 import { useAuth } from "@/context/Auth";
 
-export default function DashboardRootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
-  const { setOnboarding } = useOnboarding();
-  const { isLoggedIn } = useAuth();
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    // on entering dashboard, check if loggedin and onboarded, if not onboarded then trigger onboarding modal
-    (async () => {
-      try {
-        const me = await userService.getMe();
-        if (!me?.onboardingDataId) return setOnboarding("about");
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, [isLoggedIn]);
+export default function DashboardRootLayout({ children }: { children: ReactNode }) {
+    const { setOnboarding } = useOnboarding()
+    const { isLoggedIn } = useAuth()
+    const [show, setShow] = useState(false);
+    
+    useEffect(() => {
+        // on entering dashboard, check if loggedin and onboarded, if not onboarded then trigger onboarding modal
+        (async() => {
+            try {
+                const me = await userService.getMe()
+                if(!me?.onboardingDataId) return setOnboarding('about')
+            } catch (error) {
+                console.log(error)
+                if(error?.response?.statusText === "Unauthorized")
+                    return setOnboarding('login')
+            }
+        })()
+    }, [isLoggedIn])
 
   return (
     <main className="w-full  relative max-w-[100vw]">
