@@ -71,7 +71,7 @@ export default function Interests() {
                         <Button
                         type="submit"
                         disabled={!isValid}
-                        className="bg-secondary w-full text-white disabled:bg-green-300"
+                        className="bg-secondary w-full text-white disabled:bg-[#4fe7ba]"
                         text="Continue"
                         />
                     </form>
