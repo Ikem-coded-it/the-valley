@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import ApplicationRoutes from "../config/routes";
 
 export const menu = [
@@ -82,7 +83,10 @@ export const extraMenuOptions = [
   {
     icon: "/icons/menu/create-community.png",
     text: "Create Community",
-    path: ApplicationRoutes.COMMUNITIES.CREATE,
+    // path: ApplicationRoutes.COMMUNITIES.CREATE,
+    // action: (setter: Dispatch<SetStateAction<boolean>>) => {
+    //   setter(true);
+    // },
   },
   {
     icon: "/icons/menu/saved.png",

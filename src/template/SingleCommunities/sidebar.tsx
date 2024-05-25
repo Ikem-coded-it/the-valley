@@ -1,4 +1,5 @@
 import SectionContainer from "@/components/section-container.jsx";
+import { useCommunities } from "@/context/Communities";
 import TopicText from "@/molecules/topics-text";
 import { cn } from "@/utils/util";
 import { Link } from "react-router-dom";
@@ -8,6 +9,8 @@ export default function SingleCommunitiesSideBar({
 }: {
   className?: string;
 }) {
+  const { communityData } = useCommunities();
+
   return (
     <div
       className={cn("w-full max-w-[295px]", {
@@ -16,8 +19,7 @@ export default function SingleCommunitiesSideBar({
     >
       <SectionContainer title="About">
         <p className="text-[#3F4E65]">
-          This is group for people who love nature and like connect with other
-          people. you will meet with amazing people in this group{" "}
+          {communityData.about}
           <Link to={"#"} className="text-[#227A5F]">
             See More....
           </Link>

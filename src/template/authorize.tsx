@@ -1,6 +1,6 @@
-import FullScreenLoader from "@/components/loader"
+import FullScreenLoader from "@/components/loader";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 import { authToken, saveUser } from "@/store/user.atom";
 import { useEffect } from "react";
 import useUser from "@/hooks/useUser";
@@ -14,57 +14,55 @@ import { toast } from "react-toastify";
 import authService from "@/services/auth.service";
 
 export default function AuthorizationPage() {
-    const { setOnboarding } = useApp()
-    const navigate = useNavigate();
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    const state = params.get('state');
-    const error = params.get('error')
-    const { user, token } = useUser()
+  const { setOnboarding } = useApp();
+  const navigate = useNavigate();
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  const state = params.get("state");
+  const error = params.get("error");
+  const { user, token } = useUser();
 
-    const getLinkedInData = async () => {
-      const payload = { code, state };
-      console.log("user: ", user)
-      console.log("token: ", token)
-      if((user && !isObjectEmpty(user)) || !isObjectEmpty(token)) {
-        const expiredToken = isTokenExpired(token.expiresAt)
+  const getLinkedInData = async () => {
+    const payload = { code, state };
+    console.log("user: ", code);
+    console.log("token: ", token);
+    if ((user && !isObjectEmpty(user)) || !isObjectEmpty(token)) {
+      const expiredToken = isTokenExpired(token.expiresAt);
 
-        if(!expiredToken) {
-          setOnboarding(null)
-          navigate(ApplicationRoutes.HOME)
-          return
-        }
-      }
-      
-      try {
-        const { user, token } = await authService.login(payload)
-        authToken.set(token)
-        saveUser(user)
-        navigate(ApplicationRoutes.HOME)
-      } catch (error) {
-        console.log("Error: ", error)
-        toast.error("Something went wrong")
+      if (!expiredToken) {
+        setOnboarding(null);
+        navigate(ApplicationRoutes.HOME);
+        return;
       }
     }
 
-    useEffect(() => {
-      getLinkedInData()
-    }, [])
+    try {
+      const { user, token } = await authService.login(payload);
+      authToken.set(token);
+      saveUser(user);
+      navigate(ApplicationRoutes.HOME);
+    } catch (error) {
+      console.log("Error: ", error);
+      toast.error("Something went wrong");
+    }
+  };
 
-    return(
-        <main className="h-screen w-screen flex justify-center items-center bg-[#FFFFFF]">
-            {
-              error ? (
-                <div className="flex flex-col gap-2 justify-center items-center">
-                  <p className="text-red-500 text-lg">Something went wrong</p>
-                  <Link to={ApplicationRoutes.HOME}>
-                      <Button text="Go back home"/>
-                  </Link>
-                </div>
-              ) : (
-                <FullScreenLoader/>
-              )
-            }
-        </main>
-    )
+  useEffect(() => {
+    getLinkedInData();
+  }, []);
+
+  return (
+    <main className="h-screen w-screen flex justify-center items-center bg-[#FFFFFF]">
+      {error ? (
+        <div className="flex flex-col gap-2 justify-center items-center">
+          <p className="text-red-500 text-lg">Something went wrong</p>
+          <Link to={ApplicationRoutes.HOME}>
+            <Button text="Go back home" />
+          </Link>
+        </div>
+      ) : (
+        <FullScreenLoader />
+      )}
+    </main>
+  );
 }
