@@ -3,18 +3,18 @@ import axios from "axios";
 import "./style.css";
 import { toast } from "react-toastify"
 import { useEffect } from "react";
+import $http from "@/services/$http";
 
 const LoginFormComponent = () => {
   const [email, setEmail] = useState("");
   const [industry, setIndustry] = useState("");
   const [buttonText, setbuttonText] = useState("Join Waitlist");
-  const API_URL = import.meta.env.VITE_BASE_API_URL
 
   useEffect(() => {
     async function getWaitlist() {
       console.log("here")
       try{
-        const response = await axios.get("https://thevalley-adonis.azurewebsites.net/v1/waitlist", {withCredentials: true})
+        const response = await $http.get(`/waitlist`)
         console.log(response)
       }catch (e) {
         console.log("error", e)
@@ -37,7 +37,7 @@ const LoginFormComponent = () => {
     const email = e.target.email.value;
     const industry = e.target.industry.value;
     const data = { email, industry };
-    const response = await axios.post(`${API_URL}/waitlist`, data)
+    const response = await $http.post(`/waitlist`, data)
     if(response.data === "Added to waitlist")
       return toast.success("You've joined the waitlist successfully")
 

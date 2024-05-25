@@ -10,9 +10,10 @@ export default function CommunitiesSidebar() {
         title="New Communities"
         link={{ text: "See all", path: "#" }}
       >
-        {mockCommunities[0].communities.map((x) => {
+        {mockCommunities[0].communities.map((x, index) => {
           return (
             <TextWithImgFlex
+              key={index}
               title={x.title}
               img={x.imageURL}
               created={"1 hour"}

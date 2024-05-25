@@ -18,8 +18,8 @@ export default function CommunitiesIndex({ title, data }: ICOMMUNITIES) {
     <SectionContainer title={title} link={{ text: "See All", path: "#" }}>
       <SliderFrame>
         <div className="flex gap-2 justify-start items-center h-fit">
-          {data.map((info) => (
-            <Link to={":id"}>
+          {data.map((info, index) => (
+            <Link to={":id"} key={index}>
               <CommunityCard key={info.title} {...info} />
             </Link>
           ))}

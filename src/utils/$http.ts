@@ -1,9 +1,8 @@
 import { AxiosResponse } from "axios";
 import { toast } from "react-toastify";
-import Cookies from 'js-cookie';
+import { authToken } from "@/store/user.atom";
 
 export const requestInterceptor = async (config) => {
-  const authCookieId = import.meta.env['VITE_AUTH_COOKIE_ID']
   try {
     if (config.method !== "get" && config.method !== "delete") {
       if (config.data) {
@@ -22,9 +21,9 @@ export const requestInterceptor = async (config) => {
 
     if (!config.headers["authorization"]) {
       if (config.headers.set) {
-        config.headers.set("Authorization", "Bearer " + Cookies.get(authCookieId));
+        config.headers.set("Authorization", "Bearer " + authToken.get()?.token);
       } else {
-        config.headers["authorization"] = `Bearer ${Cookies.get(authCookieId)}`;
+        config.headers["authorization"] = `Bearer ${authToken.get()?.token}`;
       }
     }
   } catch (e) {

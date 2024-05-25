@@ -22,7 +22,8 @@
       "noFallthroughCasesInSwitch": true,
       "paths": {
         "@/*": ["./*"]
-      }
+      },
+      "types": ["vite/client"]
     },
     "include": [
       "**/*.ts",

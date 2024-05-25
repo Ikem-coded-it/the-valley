@@ -3,11 +3,13 @@ import JoinedCommunities from "@/organisms/Communities/joined";
 import CommunitiesSidebar from "./sidebar";
 import { useEffect, useState } from "react";
 import { cn } from "@/utils/util";
+import { goToTop } from "@/utils/util";
 
 export default function Communities() {
   const [toggle, setToggle] = useState(true);
 
   useEffect(() => {
+    goToTop()
     if (window.innerWidth < 1027) {
       setToggle(false);
     }

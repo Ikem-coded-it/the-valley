@@ -6,9 +6,10 @@ import SideFeeds from "../../organisms/home/sidefeeds";
 import Posts from "@/organisms/home/posts";
 import PostInputBox from "@/molecules/home/post-input-box";
 import styles from "./home.module.css";
+import { useAuth } from "@/context/Auth";
 
 export default function HomeTemplate() {
-
+    const { isLoggedIn } = useAuth()
     useEffect(() => {
         goToTop()
     }, [])
@@ -17,7 +18,7 @@ export default function HomeTemplate() {
         <Page className="flex-row justify-between items-start gap-4 2xl:gap-6 relative">
             <section className={`${styles.postsSection} grow shrink min-w-full lg:min-w-[425px] 2xl:min-w-[625px] min-h-screen max-h-fit flex flex-col justify-start items-start gap-4`}>
                 <CommunitiesSlider/>
-                <PostInputBox/>
+                {isLoggedIn && <PostInputBox/>}
                 <Posts/>
             </section>
 

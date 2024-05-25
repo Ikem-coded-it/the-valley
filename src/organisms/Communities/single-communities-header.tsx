@@ -57,9 +57,9 @@ export default function SinglePageCommunitiesHeader() {
               }
             )}
           >
-            {SingleCommunitiesNav.map((x) => {
+            {SingleCommunitiesNav.map((x, i) => {
               return (
-                <>
+                <div key={i}>
                   {x.text === "More" ? (
                     <>
                       <li
@@ -95,7 +95,7 @@ export default function SinglePageCommunitiesHeader() {
                       </Link>
                     </li>
                   )}
-                </>
+                </div>
               );
             })}
           </ul>

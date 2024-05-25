@@ -63,7 +63,7 @@ export default function SearchFilter() {
         >
           {filterData.map((x, i) => {
             return (
-              <>
+              <div key={i}>
                 {x.subValues ? (
                   <Filter
                     type="dropdown"
@@ -71,7 +71,6 @@ export default function SearchFilter() {
                     checkBoxValue={checkBoxValue}
                     subValues={x.subValues}
                     setCheckBoxValue={setCheckBoxValue}
-                    key={i}
                   />
                 ) : (
                   <Filter
@@ -82,7 +81,7 @@ export default function SearchFilter() {
                     setCheckBoxValue={setCheckBoxValue}
                   />
                 )}
-              </>
+              </div>
             );
           })}
         </div>
