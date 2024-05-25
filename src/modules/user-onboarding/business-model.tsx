@@ -3,19 +3,25 @@ import createOnboardingQuestions from "@/store/onboarding";
 import ModalHeader from "@/components/user-onboarding/modal-header";
 import DynamicInput from "@/components/form/inputs";
 import Button from "@/components/button";
-import { useApp } from "@/context/app";
+import { useOnboarding } from "@/context/Onboarding";
+import { BusinessModelTypes } from "@/types/onboarding";
+import businessModelOnboardingValidationSchema from "@/validators/onboarding/business_model";
 
 export default function BusinessModel() {
     const info = createOnboardingQuestions().businessModel;
-    const { nextOnboardingStep } = useApp()
+    const { nextOnboardingStep, setOnboardingValues, onboardingValues } = useOnboarding()
 
     const handleSubmit = (values) => {
-        console.log(values)
+        console.log("new", values)
+        console.log("old", onboardingValues)
+        setOnboardingValues(prev => {
+            return {...prev, ...values}
+        })
         nextOnboardingStep()
     }
 
-    const initialValues = {
-        business_model: [],
+    const initialValues: {business_model: BusinessModelTypes[]} = {
+        business_model: null,
     }
 
     return(
@@ -26,13 +32,15 @@ export default function BusinessModel() {
 
             <Formik
             initialValues={initialValues}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            validationSchema={businessModelOnboardingValidationSchema}
+            >
                 {({
                     handleSubmit,
                     handleChange,
                     handleBlur,
                     errors,
-                    values
+                    isValid
                 }) => (
                     <form
                     onSubmit={handleSubmit}
@@ -49,7 +57,8 @@ export default function BusinessModel() {
 
                         <Button
                         type="submit"
-                        className="bg-secondary w-full text-white"
+                        disabled={!isValid}
+                        className="bg-secondary w-full text-white disabled:bg-green-300"
                         text="Continue"
                         />
                     </form>

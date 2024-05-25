@@ -6,14 +6,14 @@ import Sidebar from "../sidebar";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { cn } from "../../utils/util";
-import { useApp } from "@/context/app";
+import { useOnboarding } from "@/context/Onboarding";
 import { useAuth } from "@/context/Auth";
 import { Link } from "react-router-dom";
 import ApplicationRoutes from "@/config/routes";
 
 export default function Header() {
     const [open, setOpen] = useState(false)
-    const {setOnboarding} = useApp()
+    const {setOnboarding} = useOnboarding()
     const {pathname} = useLocation();
     const { isLoggedIn } = useAuth();
 

@@ -3,19 +3,24 @@ import createOnboardingQuestions from "@/store/onboarding";
 import ModalHeader from "@/components/user-onboarding/modal-header";
 import DynamicInput from "@/components/form/inputs";
 import Button from "@/components/button";
-import { useApp } from "@/context/app";
+import { useOnboarding } from "@/context/Onboarding";
+import descriptionOnboardingValidationSchema from "@/validators/onboarding/description";
 
 export default function Description() {
     const info = createOnboardingQuestions().description;
-    const { nextOnboardingStep } = useApp()
+    const { nextOnboardingStep, setOnboardingValues, onboardingValues } = useOnboarding()
 
     const handleSubmit = (values) => {
-        console.log(values)
+        console.log("new", values)
+        console.log("old", onboardingValues)
+        setOnboardingValues(prev => {
+            return {...prev, ...values}
+        })
         nextOnboardingStep()
     }
 
-    const initialValues = {
-        description: [],
+    const initialValues: {description: string[]} = {
+        description: null,
     }
 
     return(
@@ -26,13 +31,15 @@ export default function Description() {
 
             <Formik
             initialValues={initialValues}
-            onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}
+            validationSchema={descriptionOnboardingValidationSchema}
+            >
                 {({
                     handleSubmit,
                     handleChange,
                     handleBlur,
                     errors,
-                    values
+                    isValid
                 }) => (
                     <form
                     onSubmit={handleSubmit}
@@ -49,7 +56,8 @@ export default function Description() {
 
                         <Button
                         type="submit"
-                        className="bg-secondary w-full text-white"
+                        disabled={!isValid}
+                        className="bg-secondary w-full text-white disabled:bg-green-300"
                         text="Continue"
                         />
                     </form>

@@ -5,7 +5,7 @@ import { authToken, saveUser } from "@/store/user.atom";
 import { useEffect } from "react";
 import useUser from "@/hooks/useUser";
 import ApplicationRoutes from "@/config/routes";
-import { useApp } from "@/context/app";
+import { useOnboarding } from "@/context/Onboarding";
 import { isObjectEmpty } from "@/utils/util";
 import { isTokenExpired } from "@/utils/user";
 import Button from "@/components/button";
@@ -14,13 +14,13 @@ import { toast } from "react-toastify";
 import authService from "@/services/auth.service";
 
 export default function AuthorizationPage() {
-  const { setOnboarding } = useApp();
-  const navigate = useNavigate();
-  const params = new URLSearchParams(window.location.search);
-  const code = params.get("code");
-  const state = params.get("state");
-  const error = params.get("error");
-  const { user, token } = useUser();
+    const { setOnboarding } = useOnboarding()
+    const navigate = useNavigate();
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const state = params.get('state');
+    const error = params.get('error')
+    const { user, token } = useUser()
 
   const getLinkedInData = async () => {
     const payload = { code, state };

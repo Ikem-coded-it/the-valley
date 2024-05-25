@@ -8,7 +8,7 @@ export default function RadioGroup({ options, ...props }) {
                 return(
                     <RadioInput
                     key={idx}
-                    css="height: 56px;border-bottom: 1px solid #EBEEF3;padding-left: 16px;align-items: center;"
+                    $css="height: 56px;border-bottom: 1px solid #EBEEF3;padding-left: 16px;align-items: center;"
                     {...option}
                     {...props}
                     />
@@ -17,7 +17,7 @@ export default function RadioGroup({ options, ...props }) {
 
             <ErrorMessage
             component={'p'}
-            className={"text-sm text-red-400"}
+            className={"text-sm text-red-400 ml-[20px]"}
             name={props.name}
             />
         </div>

@@ -24,7 +24,7 @@ export default function GroupChoiceBox({ options, ...props }) {
 
             <ErrorMessage
             component={"p"}
-            className={"text-sm text-red-400"}
+            className={"text-sm text-red-400 ml-[20px]"}
             name={props.name}
             />
         </div>

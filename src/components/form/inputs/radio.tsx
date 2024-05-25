@@ -9,13 +9,13 @@ const RadioContainer = styled.div`
     justify-content: flex-start;
     align-items: center:
     gap: 10px;
-    ${({css}: any) => css}
+    ${({$css}: any) => $css}
 `
 
-export default function RadioInput({ name, label, value, css, ...rest }) {
+export default function RadioInput({ name, label, value, $css, ...rest }) {
     const { values } = useFormikContext<any>()
     return(
-        <RadioContainer css={css as string}>
+        <RadioContainer $css={$css as string}>
             <div className="mr-2">
                 <RadioButton
                 name={name}

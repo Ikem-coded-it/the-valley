@@ -1,6 +1,6 @@
 import Input from "./input";
 import GroupChoiceBox from "./group-choice-box";
-import SelectField from "./select";
+// import SelectField from "./select";
 import Checkbox from "./checkbox";
 import GroupChipInput from "./group-chip-input";
 import SearchBar from "@/components/searchbar";
@@ -8,6 +8,7 @@ import RadioInput from "./radio";
 import RadioGroup from "./radio-group";
 import CheckboxGroup from "./checkbox-group";
 import Dropdown from "./dropdown";
+import GroupCheckboxDropdown from "./group-checkbox-dropdown";
 
 export default function DynamicInput({...props}) {
     const render = () => {
@@ -35,6 +36,9 @@ export default function DynamicInput({...props}) {
 
             case "checkbox group":
                 return <CheckboxGroup  options={props?.options} {...props}/>
+
+            case "group checkbox dropdown":
+                return <GroupCheckboxDropdown options={props?.options} {...props}/>
 
             default:
                 return <Input {...props}/>

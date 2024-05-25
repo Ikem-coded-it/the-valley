@@ -24,13 +24,22 @@ export default function ChoiceBoxInput({
     questions,
     ...props
 }: ChoiceBoxProps) {
-    const { values, handleChange, handleBlur } = useFormikContext();
+    const { values, handleChange, handleBlur, setFieldValue } = useFormikContext();
+    const handleChangeForm = () => {
+        // clear previous values then change questions
+        if(Object.keys(values)?.includes?.("user_role")) {
+            setFieldValue("company_stage", null)
+            setFieldValue("founder_industry", null)
+            setFieldValue("investor_industry", null)
+            setUserRoleQuestions(questions as any)
+        }
+    }
 
     return(
         <div className="w-fit h-fit">
             <label
             htmlFor={id}
-            onClick={() => setUserRoleQuestions(questions as any)}
+            onClick={() => handleChangeForm()}
             className={cn(
                 "h-[93px] w-[160px] rounded-[4px] border-[1px] p-4 flex flex-col gap-3 items-center hover:bg-[#EFFAF5] hover:border-secondary hover:cursor-pointer transition duration-[.2s]",
                 {

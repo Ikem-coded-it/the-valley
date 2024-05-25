@@ -23,14 +23,18 @@ export const aboutOnboarding = () => {
                                 placeholder: "Company Name"
                             },
                             {
-                                key: 'industry',
+                                key: 'founder_industry',
                                 label: "Choose your industry",
-                                type: "select",
+                                type: "group checkbox dropdown",
                                 placeholder: "Select your industry",
                                 options: [
-                                    {label: "Technology", value: "technology"},
-                                    {label: "Finance", value: "finance"},
-                                    {label: "Healthcare", value: "healthcare"},
+                                    {label: "Agritech & Biotech", value: "Agritech & Biotech"},
+                                    {label: "Artificial Intelligence", value: "Artificial Intelligence"},
+                                    {label: "Software as a Service (SAAS)", value: "Software as a Service (SAAS)"},
+                                    {label: "Financial", value: "Financial"},
+                                    {label: "Medical & Healthcare", value: "Medical & Healthcare"},
+                                    {label: "Graphic Design ", value: "Graphic Design"},
+                                    {label: "Other", value: "other"},
                                 ]
                             },
                             {
@@ -39,13 +43,17 @@ export const aboutOnboarding = () => {
                                 type: "select",
                                 placeholder: "Select company stage",
                                 options: [
-                                    {label: "Stage 1", value: 1},
-                                    {label: "Stage 2", value: 2},
-                                    {label: "Stage 3", value: 3},
+                                    {label: "Pre seed", value: "Pre Seed"},
+                                    {label: "Seed", value: "Seed"},
+                                    {label: "Series A", value: "Series A"},
+                                    {label: "Series B", value: "Series B"},
+                                    {label: "Series C+", value: "Series C+"},
+                                    {label: "Bootstrapped", value: "Bootstrapped"},
+                                    {label: "Other", value: "other"},
                                 ]
                             },
                             {
-                                key: 'looking_for_founder',
+                                key: 'looking_for_cofounder',
                                 type: 'checkbox',
                                 label: "I'm currently looking for a cofounder",
                                 labelDescription: "if you check this box, we'll help you get matched with a cofounder in our community",
@@ -64,25 +72,33 @@ export const aboutOnboarding = () => {
                                 placeholder: "Firm's Name"
                             },
                             {
-                                key: 'industry',
+                                key: 'investor_industry',
                                 label: "Which industry do you invest in",
-                                type: "select",
+                                type: "group checkbox dropdown",
                                 placeholder: "Select Your industry",
                                 options: [
-                                    {label: "Technology", value: "technology"},
-                                    {label: "Finance", value: "finance"},
-                                    {label: "Healthcare", value: "healthcare"},
+                                    {label: "Agritech & Biotech", value: "Agritech & Biotech"},
+                                    {label: "Artificial Intelligence", value: "Artificial Intelligence"},
+                                    {label: "Software as a Service (SAAS)", value: "Software as a Service (SAAS)"},
+                                    {label: "Financial", value: "Financial"},
+                                    {label: "Medical & Healthcare", value: "Medical & Healthcare"},
+                                    {label: "Graphic Design ", value: "Graphic Design"},
+                                    {label: "Other", value: "other"},
                                 ]
                             },
                             {
                                 key: 'company_stage',
                                 label: "What stages do you invest in",
-                                type: "select",
+                                type: "group checkbox dropdown",
                                 placeholder: "Select company stage",
                                 options: [
-                                    {label: "Stage 1", value: 1},
-                                    {label: "Stage 2", value: 2},
-                                    {label: "Stage 3", value: 3},
+                                    {label: "Pre seed", value: "Pre Seed"},
+                                    {label: "Seed", value: "Seed"},
+                                    {label: "Series A", value: "Series A"},
+                                    {label: "Series B", value: "Series B"},
+                                    {label: "Series C+", value: "Series C+"},
+                                    {label: "Bootstrapped", value: "Bootstrapped"},
+                                    {label: "Other", value: "other"},
                                 ]
                             },
                         ]

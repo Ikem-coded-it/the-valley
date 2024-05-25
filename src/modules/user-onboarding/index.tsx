@@ -9,10 +9,10 @@ import Description from "./description"
 import IndustryGroup from "./industry-group"
 import Ethos from "./ethos"
 import { StyledModalBackground } from "@/components/user-onboarding/styles";
-import { useApp } from "@/context/app";
+import { useOnboarding } from "@/context/Onboarding";
 
 export default function Onboarding() {
-    const { onboarding } = useApp();
+    const { onboarding } = useOnboarding();
 
     const render = (step) => {
         switch(step) {

@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
 import { StyledModal } from "./styles";
-import { useApp } from "@/context/app";
+import { useOnboarding } from "@/context/Onboarding";
 import { useEffect } from "react";
 import { cn } from "@/utils/util";
 
 export default function Modal({ children, width, bg }: { children: ReactNode, width?: number, bg?: string }) {
-    const { onboarding, setOnboarding } = useApp();
+    const { onboarding, setOnboarding } = useOnboarding();
 
     useEffect(() => {
         const modal = document.getElementById("modal");

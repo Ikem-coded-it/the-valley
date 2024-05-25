@@ -3,11 +3,11 @@ import createOnboardingQuestions from "@/store/onboarding";
 import ModalHeader from "@/components/user-onboarding/modal-header";
 import DynamicInput from "@/components/form/inputs";
 import Button from "@/components/button";
-import { useApp } from "@/context/app";
+import { useOnboarding } from "@/context/Onboarding";
 
 export default function FundingStage() {
     const info = createOnboardingQuestions().fundingStage;
-    const { nextOnboardingStep } = useApp()
+    const { nextOnboardingStep } = useOnboarding()
 
     const handleSubmit = (values) => {
         console.log(values)
