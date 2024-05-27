@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 // Providers
 import { PrimeReactProvider } from "primereact/api";
