@@ -13,6 +13,7 @@ export default function CommunitiesSlider() {
       const res = await community.index();
 
       setCommunities(res);
+      console.log("communities", res);
     })();
   }, []);
   // const cards = [
@@ -40,14 +41,16 @@ export default function CommunitiesSlider() {
       <SliderFrame>
         <div className="flex gap-2 justify-start items-center h-fit">
           {communities.map((info) => (
-            <Link to={`/communities/${info.id}`}>
-              <CommunityCard
-                key={info.communityName}
-                imageURL={info.backgroundUrl}
-                title={info.communityName}
-                members={info.noOfMembers}
-              />
-            </Link>
+            <CommunityCard
+              key={info.communityName}
+              imageURL={info.backgroundUrl}
+              title={info.communityName}
+              members={info.noOfMembers}
+              id={info.id}
+              joined={info?.user?.some(
+                (x) => x.id === "b47484b5-b3c3-4c51-964b-8e1c72f468e0"
+              )}
+            />
           ))}
         </div>
       </SliderFrame>

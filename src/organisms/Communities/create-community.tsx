@@ -4,6 +4,12 @@ import { base64Url } from "@/utils/util";
 import { Field, Formik } from "formik";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Form } from "react-router-dom";
+import { toast } from "react-toastify";
+import AWS from "aws-sdk";
+window.global ||= window;
+import S3 from "aws-sdk/clients/s3";
+import { awsService } from "@/services/aws.service";
+import { objectToFormData } from "@/utils/formatter";
 
 interface Props {
   setShow: Dispatch<SetStateAction<boolean>>;
@@ -38,7 +44,7 @@ export default function CreateCommunity(props: Props) {
 
   return (
     <div className="bg-white w-full max-w-[700px] rounded-lg">
-      <div className="flex justify-end p-4">
+      <div className="flex justify-end p-4 ">
         <i
           className="ph ph-x text-2xl"
           role="button"
@@ -46,7 +52,7 @@ export default function CreateCommunity(props: Props) {
         />
       </div>
 
-      <div className=" p-4 py-10">
+      <div className=" px-8 py-10">
         <h1 className="text-lg sm:text-[32px] text-[#227A5F] mb-2 font-semibold">
           {headerText.title}
         </h1>
@@ -135,6 +141,81 @@ const BasicInfo = () => {
 };
 
 const CommunityStyle = ({ value }) => {
+  const [selectedFile, setselectedFile] = useState(null);
+  const [uploading, setUploading] = useState(null);
+
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/jpg",
+    "image/svg",
+    "application/pdf",
+    "video/mp4",
+    "video/quicktime",
+    "audio/mpeg",
+    "audio/wav",
+    // Add more supported types as needed
+  ];
+
+  const uploadFile = async (file: any) => {
+    setUploading(true);
+
+    AWS.config.update({
+      accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
+      secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY,
+    });
+
+    const s3 = new S3({
+      params: { Bucket: import.meta.env.VITE_AWS_BUCKET_NAME },
+      region: import.meta.env.VITE_AWS_REGION,
+    });
+
+    const params = {
+      Bucket: import.meta.env.VITE_AWS_BUCKET_NAME,
+      Key: file.name,
+      // Expires: 2000,
+      Body: file,
+    };
+
+    try {
+      const upload = await s3.upload(params).promise();
+      // const upload = await s3.putObject(params).promise();
+      // const data = await s3.getSignedUrl("getObject", params);
+      console.log("file data", upload.Location);
+
+      toast.success("File successfully uploaded");
+      setUploading(false);
+      return upload.Location;
+    } catch (err) {
+      toast.error("File could not be uploaded");
+
+      setUploading(false);
+    }
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    if (!allowedTypes.includes(file.type)) {
+      toast.error("File type not allowed");
+      return;
+    }
+
+    const params = {
+      Bucket: "awsthevalleyfileuploadbucket",
+      Key: file.name,
+      Body: JSON.stringify(file),
+    };
+    setselectedFile(file);
+
+    (async () => {
+      const url = await uploadFile(file);
+      // const url = await awsService.upload(params);
+      value.backgroundUrl = url;
+    })();
+    console.log(file);
+  };
+
   return (
     <>
       <div className="flex items-center justify-between w-full max-w-[400px] mt-8">
@@ -151,11 +232,13 @@ const CommunityStyle = ({ value }) => {
           name="backgroundUrl"
           type="file"
           className="hidden"
-          onChange={async (e) => {
-            const res = await base64Url(e.target.files[0]);
-            value.backgroundUrl = res;
-          }}
+          onChange={handleFileChange}
         />
+        {/* <img
+          src={
+            "https://awsthevalleyfileuploadbucket.s3.eu-north-1.amazonaws.com/heroimage2.jpg"
+          }
+        /> */}
       </div>
     </>
   );

@@ -42,6 +42,13 @@ export default function TextEditor({ ...props }) {
   return (
     <>
       <div className="bg-white w-full   max-w-[950px]">
+        <div className="flex justify-end p-4">
+          <i
+            className="ph ph-x text-2xl"
+            role="button"
+            onClick={() => props.setShow(false)}
+          />
+        </div>
         <ul className="flex w-full items-center justify-between">
           {editorTabs.map((x) => {
             return (
@@ -75,7 +82,7 @@ const Editor = ({ ...props }) => {
     (async () => {
       await community.post(
         communityData.id,
-        "b47484b5-b3c3-4c51-964b-8e1c72f468e0",
+      
         data
       );
       // window.history.back();

@@ -92,7 +92,6 @@ export default function Sidebar({
 }
 
 function MenuItem({ ...props }) {
-  const navigate = useNavigate();
   const { user } = useUser();
 
   const { setOnboarding } = useOnboarding();

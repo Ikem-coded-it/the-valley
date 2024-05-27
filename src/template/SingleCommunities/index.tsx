@@ -9,13 +9,24 @@ import { useNavigate, useParams } from "react-router-dom";
 import { community } from "@/services/community.service";
 import FullScreenLoader from "@/components/loader";
 import { useCommunities } from "@/context/Communities";
+import Overlay from "@/components/overlay";
+import TextEditor from "@/components/text-editor";
+import useUser from "@/hooks/useUser";
+import { useOnboarding } from "@/context/Onboarding";
+import { toast } from "react-toastify";
 
 export default function SingleCommunities() {
+  const { user } = useUser();
+  console.log("my user", user);
+  const { setOnboarding } = useOnboarding();
+
   const [loading, setLoading] = useState(true);
+  const [show, setShow] = useState(false);
+
   const { communityData, setCommunityData } = useCommunities();
 
   console.log(communityData);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { id } = useParams();
   // const id = params.get.i
@@ -72,7 +83,20 @@ export default function SingleCommunities() {
               <div
                 className={cn("w-full lg:max-w-[695px] flex flex-col gap-4")}
               >
-                <div role="button" onClick={() => navigate(`editor`)}>
+                <div
+                  role="button"
+                  onClick={() => {
+                    if (!user) {
+                      setOnboarding("login");
+                      return;
+                    }
+                    if (!communityData.user.some((x) => x.id === user.id)) {
+                      toast.warn("You must be a member to post");
+                      return;
+                    }
+                    setShow(true);
+                  }}
+                >
                   <PostInputBox />
                 </div>
                 <Posts
@@ -93,6 +117,12 @@ export default function SingleCommunities() {
             </div>
           </div>
         </div>
+      )}
+
+      {show && (
+        <Overlay>
+          <TextEditor setShow={setShow} />
+        </Overlay>
       )}
     </>
   );

@@ -34,12 +34,25 @@ class Community {
     }
   }
 
-  public async post(communityId: string, userId: string, payload: any) {
+  public async join(communityId, userId) {
+    try {
+      await $http.post(`/community/join/${communityId}/${userId}`);
+      window.location.href = `/communities/${communityId}`;
+      toast.success("You have successfully joined this community");
+    } catch (error) {
+      toast.error(error.message);
+
+      return error;
+    }
+  }
+
+  public async post(communityId: string, payload: any) {
     try {
       const response = await $http.post(
-        `/community/create-post/${communityId}/${userId}`,
+        `/community/create-post/${communityId}`,
         payload
       );
+      window.location.href = `/communities/${communityId}`;
       toast.success("Post sent!");
       return response.data.data;
     } catch (error) {
@@ -70,7 +83,7 @@ class Community {
   public async reaction(qs: string, id: string) {
     try {
       const response = await $http.post(
-        `/community/react/store/${id}?kind=${qs}&user=b47484b5-b3c3-4c51-964b-8e1c72f468e0`
+        `/community/react/store/${id}?kind=${qs}`
       );
       toast.success("Sent!");
 

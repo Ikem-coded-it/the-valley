@@ -24,8 +24,7 @@ export default function AuthorizationPage() {
 
   const getLinkedInData = async () => {
     const payload = { code, state };
-    console.log("user: ", code);
-    console.log("token: ", token);
+
     if ((user && !isObjectEmpty(user)) || !isObjectEmpty(token)) {
       const expiredToken = isTokenExpired(token.expiresAt);
 
@@ -37,8 +36,10 @@ export default function AuthorizationPage() {
     }
 
     try {
+      console.log("auth", payload);
       const { user, token } = await authService.login(payload);
       authToken.set(token);
+      console.log("token", token);
       saveUser(user);
       navigate(ApplicationRoutes.HOME);
     } catch (error) {

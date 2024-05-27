@@ -29,18 +29,33 @@ export default function DashboardRootLayout({ children }: { children: ReactNode 
     }, [isLoggedIn])
 
   return (
-    <main className="w-full pt-[80px] relative max-w-[100vw]">
+    <main className="w-full  relative max-w-[100vw]">
       <Header />
+<<<<<<< HEAD
+=======
+
+      <main className="w-full pt-[80px] relative max-w-[100vw]">
+        <Header />
+>>>>>>> 0f4059a (live test implementation)
 
       <Sidebar className="hidden lg:block fixed top-[80px]" setShow={setShow} />
 
       <PagesContainer>{children}</PagesContainer>
 
+<<<<<<< HEAD
       {show && (
         <Overlay>
           <CreateCommunity setShow={setShow} />
         </Overlay>
       )}
+=======
+        {show && (
+          <Overlay>
+            <CreateCommunity setShow={setShow} />
+          </Overlay>
+        )}
+      </main>
+>>>>>>> 0f4059a (live test implementation)
     </main>
   );
 }
