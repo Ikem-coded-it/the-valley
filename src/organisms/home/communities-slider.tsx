@@ -40,7 +40,7 @@ export default function CommunitiesSlider() {
     <SectionContainer title="Communities 🎉">
       <SliderFrame>
         <div className="flex gap-2 justify-start items-center h-fit">
-          {communities.map((info) => (
+          {communities && communities.length > 0 && communities.map((info) => (
             <CommunityCard
               key={info.communityName}
               imageURL={info.backgroundUrl}
