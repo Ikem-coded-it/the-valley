@@ -1,6 +1,5 @@
 import FullScreenLoader from "@/components/loader";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { authToken, saveUser } from "@/store/user.atom";
 import { useEffect } from "react";
 import useUser from "@/hooks/useUser";

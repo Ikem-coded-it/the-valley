@@ -1,9 +1,8 @@
 import SliderFrame from "@/components/slider/frame";
 import CommunityCard from "@/molecules/home/community-card";
-import SectionContainer from "../../components/section-container.jsx/index.js";
-import { community } from "@/services/community.service.ts";
+import SectionContainer from "@/components/section-container";
+import { community } from "@/services/community.service";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function CommunitiesSlider() {
   const [communities, setCommunities] = useState([]);

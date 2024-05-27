@@ -3,14 +3,13 @@ import {
   recentCommunities,
   recentChats,
   extraMenuOptions,
-} from "../../store/menu";
-import { cn } from "../../utils/util";
+} from "@/store/menu";
+import { cn } from "@/utils/util";
 import Button from "../button";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/context/Auth";
 import { Dispatch, SetStateAction } from "react";
 import useUser from "@/hooks/useUser";
-import { useNavigate } from "react-router-dom";
 import { useOnboarding } from "@/context/Onboarding";
 
 export default function Sidebar({

@@ -1,4 +1,4 @@
-import SectionContainer from "@/components/section-container.jsx/index.jsx";
+import SectionContainer from "@/components/section-container";
 import PostCard from "./post-card";
 import { posts } from "@/store/home";
 import RealPostCard from "./real-post-card";

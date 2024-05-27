@@ -1,4 +1,4 @@
-import SectionContainer from "@/components/section-container.jsx";
+import SectionContainer from "@/components/section-container";
 import SliderFrame from "@/components/slider/frame";
 import CommunityCard from "@/molecules/home/community-card";
 import { Link } from "react-router-dom";

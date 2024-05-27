@@ -1,5 +1,5 @@
 import Schedule from "@/components/schedule";
-import SectionContainer from "@/components/section-container.jsx";
+import SectionContainer from "@/components/section-container";
 import TextWithImgFlex from "@/components/text-with-img-flex";
 import { mockCommunities } from "@/mock/communities";
 

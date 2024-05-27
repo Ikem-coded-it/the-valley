@@ -30,7 +30,7 @@ export default function SinglePageCommunitiesHeader(props) {
             <Button
               text="Share"
               icon={<i className="ph ph-share" />}
-              className="rounded-[40px] text-white bg-[#EBEEF3]  text-black"
+              className="rounded-[40px] bg-[#EBEEF3]  text-black"
             />
 
             <Button
@@ -41,7 +41,7 @@ export default function SinglePageCommunitiesHeader(props) {
         </div>
 
         <nav>
-          <div className="border border-[#227A5F] flex justify-end  self-end relative z-20 h-[30px] my-4  w-max   max-[600px]:block hidden">
+          <div className="border border-[#227A5F] justify-end  self-end relative z-20 h-[30px] my-4  w-max   max-[600px]:block hidden">
             <i
               className="ph ph-list  text-2xl "
               role="button"

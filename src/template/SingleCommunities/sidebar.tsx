@@ -1,4 +1,4 @@
-import SectionContainer from "@/components/section-container.jsx";
+import SectionContainer from "@/components/section-container";
 import { useCommunities } from "@/context/Communities";
 import TopicText from "@/molecules/topics-text";
 import { cn } from "@/utils/util";
