@@ -19,6 +19,7 @@ export default function DashboardRootLayout({ children }: { children: ReactNode 
         (async() => {
             try {
                 const me = await userService.getMe()
+                console.log("me: ", me)
                 if(!me?.onboardingDataId) return setOnboarding('about')
             } catch (error) {
                 console.log(error)
