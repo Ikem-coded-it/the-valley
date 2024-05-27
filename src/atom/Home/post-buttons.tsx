@@ -1,3 +1,5 @@
+import { useOnboarding } from "@/context/Onboarding";
+import useUser from "@/hooks/useUser";
 import { cn } from "@/utils/util";
 import { MouseEventHandler, ReactNode } from "react";
 
@@ -6,9 +8,20 @@ const PostLikeButtons = ({ ...props }) => {
 
   const handleDislike = () => {};
 
+  const { user } = useUser();
+  const { setOnboarding } = useOnboarding();
+
   return (
     <div className="flex flex-col h-[107px] w-[28px] gap-[3px] justify-center -translate-y-4">
-      <button onClick={props.handleLike}>
+      <button
+        onClick={() => {
+          if (!user) {
+            setOnboarding("login");
+            return;
+          }
+          props.handleLike();
+        }}
+      >
         <i
           className={cn("ph ph-arrow-fat-up text-[#5A6F8C] text-lg", {
             ["text-[#227A5F]"]: props.liked,

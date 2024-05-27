@@ -14,18 +14,17 @@ import { toast } from "react-toastify";
 import authService from "@/services/auth.service";
 
 export default function AuthorizationPage() {
-    const { setOnboarding } = useOnboarding()
-    const navigate = useNavigate();
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    const state = params.get('state');
-    const error = params.get('error')
-    const { user, token } = useUser()
+  const { setOnboarding } = useOnboarding();
+  const navigate = useNavigate();
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get("code");
+  const state = params.get("state");
+  const error = params.get("error");
+  const { user, token } = useUser();
 
   const getLinkedInData = async () => {
     const payload = { code, state };
-    console.log("user: ", code);
-    console.log("token: ", token);
+
     if ((user && !isObjectEmpty(user)) || !isObjectEmpty(token)) {
       const expiredToken = isTokenExpired(token.expiresAt);
 
@@ -37,8 +36,10 @@ export default function AuthorizationPage() {
     }
 
     try {
+      console.log("auth", payload);
       const { user, token } = await authService.login(payload);
       authToken.set(token);
+      console.log("token", token);
       saveUser(user);
       navigate(ApplicationRoutes.HOME);
     } catch (error) {

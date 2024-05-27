@@ -11,7 +11,7 @@ import { useAuth } from "@/context/Auth";
 import { Dispatch, SetStateAction } from "react";
 import useUser from "@/hooks/useUser";
 import { useNavigate } from "react-router-dom";
-import { useApp } from "@/context/app";
+import { useOnboarding } from "@/context/Onboarding";
 
 export default function Sidebar({
   className,
@@ -92,10 +92,9 @@ export default function Sidebar({
 }
 
 function MenuItem({ ...props }) {
-  const navigate = useNavigate();
   const { user } = useUser();
 
-  const { setOnboarding } = useApp();
+  const { setOnboarding } = useOnboarding();
 
   return (
     <li className="h-[40px] w-full" role="button">

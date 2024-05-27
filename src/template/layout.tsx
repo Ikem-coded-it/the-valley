@@ -31,9 +31,9 @@ export default function DashboardRootLayout({
   }, [isLoggedIn]);
 
   return (
-    <main className="w-full pt-[80px] relative max-w-[100vw]">
+    <main className="w-full  relative max-w-[100vw]">
       <Header />
-      return (
+
       <main className="w-full pt-[80px] relative max-w-[100vw]">
         <Header />
 
@@ -50,7 +50,6 @@ export default function DashboardRootLayout({
           </Overlay>
         )}
       </main>
-      )
     </main>
   );
 }
