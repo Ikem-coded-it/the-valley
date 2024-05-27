@@ -1,10 +1,10 @@
-import EventSideFeedItem from "../../molecules/home/side-feed-item.js";
-import TrendingTopicItem from "../../molecules/home/trending-topic-item.js";
-import SectionContainer from "../../components/section-container.jsx/index.js";
-import TopicItem from "@/molecules/home/topic-item.js";
+import EventSideFeedItem from "@/molecules/home/side-feed-item";
+import TrendingTopicItem from "@/molecules/home/trending-topic-item";
+import SectionContainer from "@/components/section-container/index";
+import TopicItem from "@/molecules/home/topic-item";
 import { eventsData, trendingTopicsData, topicsData } from "@/store/home";
-import LeaderboardCard from "./leaderboard-card.js";
-import CompanyHealthCard from "./company-health-card.js";
+import LeaderboardCard from "./leaderboard-card";
+import CompanyHealthCard from "./company-health-card";
 
 
 function Events() {
