@@ -11,14 +11,14 @@ const LoginFormComponent = () => {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    async function getWaitlist() {
-      try{
-        const response = await $http.get(`/waitlist`)
-        console.log(response)
-      }catch (e) {
-        console.log("error", e)
-      }
-    }
+    // async function getWaitlist() {
+    //   try{
+    //     const response = await $http.get(`/waitlist`)
+    //     console.log(response)
+    //   }catch (e) {
+    //     console.log("error", e)
+    //   }
+    // }
 
     // getWaitlist()
   }, [])

@@ -1,5 +1,5 @@
-import SearchBar from "../../components/searchbar";
-import Button from "../../components/button";
+import SearchBar from "@/components/searchbar";
+import Button from "@/components/button";
 
 export default function MarketPlacesContentHeader() {
     return(
@@ -14,7 +14,7 @@ export default function MarketPlacesContentHeader() {
                 <Button
                 icon={
                     <img
-                    classname="h-6 w-6"
+                    className="h-6 w-6"
                     src="/pages/marketplaces/sort.svg"
                     alt="sort button icon"
                     />
@@ -26,7 +26,7 @@ export default function MarketPlacesContentHeader() {
                 <Button
                 icon={
                     <img
-                    classname="h-6 w-6"
+                    className="h-6 w-6"
                     src="/pages/marketplaces/filter.svg"
                     alt="filter button icon"
                     />

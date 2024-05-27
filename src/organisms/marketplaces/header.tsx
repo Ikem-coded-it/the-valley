@@ -1,4 +1,4 @@
-import SearchBar from "../../components/searchbar";
+import SearchBar from "@/components/searchbar";
 
 export default function MarketPlacesHeader() {
     return(

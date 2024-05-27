@@ -1,5 +1,5 @@
 import { mockCommunities } from "@/mock/communities";
-import CommunitiesIndex from ".";
+import CommunitiesIndex from "./index";
 
 export default function AvailableCommunities() {
   return (

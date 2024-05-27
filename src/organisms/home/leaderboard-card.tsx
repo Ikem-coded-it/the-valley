@@ -27,7 +27,7 @@ export default function LeaderboardCard({
         <div className="w-full flex flex-col gap-2 justify-start items-center px-4 bg-[#FFFFFF] rounded-[8px]">
             <div className="w-full h-[92px] flex justify-start items-center gap-[8px]">
                 <div className="relative">
-                    <Avatar avatarURL={avatarURL}/>
+                    <Avatar url={avatarURL}/>
 
                     <div className="bg-[#EF4444] font-semibold text-xs text-white h-6 w-6 rounded-[50%] absolute bottom-0 right-0 flex justify-center items-center">
                         #1
