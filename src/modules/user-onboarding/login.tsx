@@ -1,10 +1,17 @@
 import Button from "@/components/button";
 
 export default function Login() {
+<<<<<<< HEAD
     const CLIENT_ID = import.meta.env['VITE_LINKEDIN_CLIENT_ID'];
     const REDIRECT_URI = import.meta.env['VITE_LINKEDIN_CALLBACK_URL'];
     const stateValue = import.meta.env['VITE_LINKEDIN_STATE']
     const LINKED_URL = import.meta.env['VITE_LINKEDIN_URL']
+=======
+  const CLIENT_ID = import.meta.env["VITE_LINKEDIN_CLIENT_ID"];
+  const REDIRECT_URI = import.meta.env["VITE_LINKEDIN_CALLBACK_URL"];
+  const stateValue = import.meta.env.VITE_LINKEDIN_STATE;
+  const LINKED_URL = import.meta.env["VITE_LINKEDIN_URL"]
+>>>>>>> 0f4059a (live test implementation)
     .replace(":clientId", CLIENT_ID)
     .replace(":redirectURI", REDIRECT_URI)
     .replace(":state", stateValue);
