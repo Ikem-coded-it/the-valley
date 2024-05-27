@@ -1,6 +1,6 @@
 import EventSideFeedItem from "@/molecules/home/side-feed-item";
 import TrendingTopicItem from "@/molecules/home/trending-topic-item";
-import SectionContainer from "@/components/section-container/index";
+import SectionContainer from "@/components/section-container";
 import TopicItem from "@/molecules/home/topic-item";
 import { eventsData, trendingTopicsData, topicsData } from "@/store/home";
 import LeaderboardCard from "./leaderboard-card";

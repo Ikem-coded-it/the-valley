@@ -1,5 +1,5 @@
-import { cn } from "../../utils/util";
-import { filterItems } from "../../store/marketplaces";
+import { cn } from "@/utils/util";
+import { filterItems } from "@/store/marketplaces";
 
 export default function MarketPlaceFilter() {
     return (
