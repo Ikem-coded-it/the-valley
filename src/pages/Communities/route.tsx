@@ -1,5 +1,7 @@
 import FullScreenLoader from "@/components/loader";
+import TextEditor from "@/components/text-editor";
 import ApplicationRoutes from "@/config/routes";
+import CommunitiesContext from "@/context/Communities";
 import Communities from "@/template/Communities";
 import SingleCommunities from "@/template/SingleCommunities";
 import { Outlet } from "react-router-dom";
@@ -7,9 +9,9 @@ import { Outlet } from "react-router-dom";
 const route = {
   path: ApplicationRoutes.COMMUNITIES.ALL_COMMUNITIES,
   element: (
-    <>
+    <CommunitiesContext>
       <Outlet />
-    </>
+    </CommunitiesContext>
   ),
   children: [
     {
@@ -18,7 +20,22 @@ const route = {
     },
     {
       path: ApplicationRoutes.COMMUNITIES.SINGLE_COMMUNITIES,
-      element: <SingleCommunities />,
+
+      element: (
+        <>
+          <Outlet />
+        </>
+      ),
+      children: [
+        {
+          index: true,
+          element: <SingleCommunities />,
+        },
+        {
+          path: ApplicationRoutes.EDITOR,
+          element: <TextEditor />,
+        },
+      ],
     },
   ],
   loader: async () => {

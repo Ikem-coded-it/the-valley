@@ -1,6 +1,6 @@
-import React from "react"
-import { MouseEventHandler } from "react"
-import { cn } from "../utils/util"
+import React from "react";
+import { MouseEventHandler } from "react";
+import { cn } from "../utils/util";
 
 type ButtonProps = {
     onClick?: MouseEventHandler<HTMLButtonElement>,

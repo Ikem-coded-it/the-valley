@@ -23,7 +23,9 @@ const ApplicationRoutes = {
   USER: {
     AUTHORIZE: "/authorize/request",
     LOGOUT: "/auth/logout",
-  }
+  },
+
+  EDITOR: "editor",
 };
 
 export default ApplicationRoutes;

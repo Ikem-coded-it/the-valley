@@ -24,7 +24,7 @@ import HomePageRoute from "@/pages/Home/route";
 import NotFound from "@/template/not-found";
 import DirectoryPageRoute from "@/pages/Directory/route";
 import QuizPageRoute from "@/pages/Quiz/route";
-import LogoutPageRoute from "@/pages/Logout/route"
+import LogoutPageRoute from "@/pages/Logout/route";
 import AuthorizationRoute from "@/pages/Authorize/route";
 import CommunitiesPageRoute from "@/pages/Communities/route";
 import { useEffect } from "react";
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
   WaitlistPageRoute,
   AuthorizationRoute,
   LogoutPageRoute,
-  
+
   // dashboard routes
   {
     path: "/",
@@ -42,6 +42,7 @@ const router = createBrowserRouter([
       <AuthProvider>
         <DashboardRootLayout>
           <Outlet />
+
         </DashboardRootLayout>
       </AuthProvider>
     ),
@@ -96,6 +97,7 @@ function App() {
             <RouterProvider router={router} />
             <Onboarding />
             <Toast />
+            {/* <Overlay/> */}
           </ThemeProvider>
         </OnboardingContextProvider>
       </PrimeReactProvider>
