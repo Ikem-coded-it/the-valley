@@ -1,15 +1,14 @@
 import Button from "@/components/button";
 import { community } from "@/services/community.service";
-import { base64Url } from "@/utils/util";
 import { Field, Formik } from "formik";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Form } from "react-router-dom";
 import { toast } from "react-toastify";
-import AWS from "aws-sdk";
-window.global ||= window;
-import S3 from "aws-sdk/clients/s3";
-import { awsService } from "@/services/aws.service";
-import { objectToFormData } from "@/utils/formatter";
+
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+
+import { communityValidationSchema } from "@/validators/community/create-community";
+import { s3 } from "@/services/aws.service";
 
 interface Props {
   setShow: Dispatch<SetStateAction<boolean>>;
@@ -22,13 +21,19 @@ export default function CreateCommunity(props: Props) {
     desc: "Please provide a name and description for your community",
   });
 
-  const renderForm = (value) => {
+  const renderForm = (prop) => {
     switch (step) {
       case 1:
-        return <BasicInfo />;
+        return (
+          <BasicInfo
+            errors={prop.errors}
+            touched={prop.touched}
+            values={prop.values}
+          />
+        );
 
       case 2:
-        return <CommunityStyle value={value} />;
+        return <CommunityStyle value={prop.values} />;
     }
   };
 
@@ -58,11 +63,17 @@ export default function CreateCommunity(props: Props) {
         </h1>
         <p>{headerText.desc}</p>
 
-        <Formik initialValues={{}} onSubmit={handleSubmit}>
+        <Formik
+          initialValues={{}}
+          onSubmit={handleSubmit}
+          validationSchema={communityValidationSchema}
+          validateOnChange
+          validateOnBlur
+        >
           {(prop) => {
             return (
               <Form onSubmit={(e) => prop.handleSubmit(e)}>
-                {renderForm(prop.values)}
+                {renderForm(prop)}
                 <div className="flex items-center justify-between">
                   <div>
                     <small className="text-[#227a5f]">Step {step}</small>
@@ -90,18 +101,22 @@ export default function CreateCommunity(props: Props) {
                         type="submit"
                       />
                     ) : (
-                      <div
+                      <button
+                        type={"button"}
+                        disabled={!prop.isValid}
                         className="bg-[#227A5F] text-white  w-full max-w-[70px] rounded-[40px] font-semibold text-base flex items-center justify-center gap-2 h-[48px] border-[1px] px-4 py-3 transition duration-[.2s] "
                         onClick={() => {
-                          setStep(step + 1);
-                          setHeaderText({
-                            title: "Add your community banner",
-                            desc: "Style your community",
-                          });
+                          if (prop.isValid) {
+                            setStep(step + 1);
+                            setHeaderText({
+                              title: "Add your community banner",
+                              desc: "Style your community",
+                            });
+                          }
                         }}
                       >
                         Next
-                      </div>
+                      </button>
                     )}
                   </div>
                 </div>
@@ -116,26 +131,40 @@ export default function CreateCommunity(props: Props) {
 
 // form components
 
-const BasicInfo = () => {
+const BasicInfo = (prop) => {
   return (
     <>
-      <Field
-        name="communityName"
-        placeholder="Community name"
-        className="rounded-lg border border-[black] focus:border-[#227A5F] w-full max-w-[400px] p-2 my-8 "
-      />
-      <Field
-        name="category"
-        placeholder="Category"
-        className="rounded-lg border border-[black] focus:border-[#227A5F] w-full max-w-[400px] p-2 mb-8 "
-      />
+      <div className="relative max-w-[400px] my-8 ">
+        <Field
+          name="communityName"
+          placeholder=" "
+          className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg appearance-none focus:outline-none focus:ring-0 focus:border-[#227A5F] peer border border-gray-300"
+        />
+        <label
+          htmlFor="floatingInput"
+          className="absolute border-gray-300 text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] left-2.5 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2"
+        >
+          Community name
+        </label>
 
-      <Field
-        as="textarea"
-        name="about"
-        className="block bg-white w-full max-w-[400px] rounded-lg border min-h-[200px] p-4  resize-none focus:outline-none border-[#227A5F]"
-        placeholder="Description"
-      />
+        {prop.errors.communityName && prop.touched.communityName ? (
+          <small className="text-red-500">{prop.errors.communityName}</small>
+        ) : null}
+      </div>
+      <div className="relative">
+        <Field
+          as="textarea"
+          name="about"
+          className="block bg-white w-full max-w-[400px] rounded-lg border min-h-[200px] p-4  resize-none focus:outline-none focus:border-[#227A5F] peer"
+          placeholder=" "
+        />
+        <label className="absolute text-sm  text-gray-500 duration-300 px-2.5 pb-2.5 pt-4 top-0 transform -translate-y-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-2">
+          Description
+        </label>
+        {prop.errors.about && prop.touched.about ? (
+          <small className="text-red-500">{prop.errors.about}</small>
+        ) : null}
+      </div>
     </>
   );
 };
@@ -160,32 +189,21 @@ const CommunityStyle = ({ value }) => {
   const uploadFile = async (file: any) => {
     setUploading(true);
 
-    AWS.config.update({
-      accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
-      secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY,
-    });
-
-    const s3 = new S3({
-      params: { Bucket: import.meta.env.VITE_AWS_BUCKET_NAME },
-      region: import.meta.env.VITE_AWS_REGION,
-    });
-
     const params = {
       Bucket: import.meta.env.VITE_AWS_BUCKET_NAME,
       Key: file.name,
       // Expires: 2000,
       Body: file,
     };
-
+    const command = new PutObjectCommand(params);
     try {
-      const upload = await s3.upload(params).promise();
-      // const upload = await s3.putObject(params).promise();
-      // const data = await s3.getSignedUrl("getObject", params);
-      console.log("file data", upload.Location);
+      await s3.send(command);
 
       toast.success("File successfully uploaded");
       setUploading(false);
-      return upload.Location;
+      return `https://${params.Bucket}.s3.${
+        import.meta.env.VITE_AWS_REGION
+      }.amazonaws.com/${params.Key}`;
     } catch (err) {
       toast.error("File could not be uploaded");
 

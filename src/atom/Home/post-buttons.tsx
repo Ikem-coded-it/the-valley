@@ -15,7 +15,7 @@ const PostLikeButtons = ({ ...props }) => {
     <div className="flex flex-col h-[107px] w-[28px] gap-[3px] justify-center -translate-y-4">
       <button
         onClick={() => {
-          if (!user) {
+          if (Object.entries(user).length < 1) {
             setOnboarding("login");
             return;
           }

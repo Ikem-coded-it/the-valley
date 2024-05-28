@@ -138,7 +138,7 @@ function MenuItem({ ...props }) {
             }
           )}
           onClick={() => {
-            if (!user) {
+            if (Object.entries(user).length < 1) {
               setOnboarding("login");
               return;
             }

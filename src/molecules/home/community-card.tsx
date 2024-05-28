@@ -45,7 +45,8 @@ export default function CommunityCard({ ...info }) {
           disabled={info.joined || !!joined}
           className="bg-secondary text-white rounded-[40px] h-[36px]"
           onClick={() => {
-            if (!user) {
+            console.log("user", user);
+            if (Object.entries(user).length < 1) {
               setOnboarding("login");
               return;
             }
