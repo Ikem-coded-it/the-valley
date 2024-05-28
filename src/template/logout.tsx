@@ -14,14 +14,14 @@ export default function LogoutPage() {
 
     const logout = async () => {
       try {
-        const response = await authService.logout()
-        if(response.status == 200) {
+        // const response = await authService.logout()
+        // if(response.status == 200) {
           authToken.set({})
           saveUser({})
           navigate(ApplicationRoutes.HOME)
-        } else {
-          toast.error("Something went wrong")
-        }
+        // } else {
+        //   toast.error("Something went wrong")
+        // }
       } catch (error) {
         setError(error)
         console.log(error)
