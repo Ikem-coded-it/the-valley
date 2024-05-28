@@ -25,8 +25,8 @@ export default function ChipInput({
             className={cn(
                 "h-[44px] rounded-[20px] border-[1px] px-4 flex items-center justify-center hover:border-secondary hover:cursor-pointer transition duration-[.05s]",
                 {
-                    "border-[#D3D9E4] bg-[#FFFFFF]": values?.[name] !== value ,
-                    "border-secondary bg-secondary text-white": values?.[name] === value 
+                    "border-[#D3D9E4] bg-[#FFFFFF]": !values?.[name]?.includes(value) ,
+                    "border-secondary bg-secondary text-white": values?.[name]?.includes(value) 
                 }
             )}
             >
@@ -35,7 +35,7 @@ export default function ChipInput({
 
             <Field
             {...props}
-            type="radio"
+            type="checkbox"
             id={id}
             value={value}
             name={name}

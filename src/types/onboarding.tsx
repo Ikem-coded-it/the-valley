@@ -29,9 +29,9 @@ export type AboutValueTypes = {
 }
 
 export interface InterestTypes {
-    technology: string
-    trending: string
-    business: string
+    technology: string[]
+    trending: string[]
+    business: string[]
 }
 
 export interface FounderTypes {

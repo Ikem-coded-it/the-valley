@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ErrorMessage } from "formik";
 
 const StyledInput = styled.input`
-    width: 95%;
+    width: 100%;
     height: 48px;
     padding: 12px 16px;
     border: 1px solid #D3D9E4;

@@ -21,9 +21,9 @@ export default function Interests() {
     }
 
     const initialValues: InterestTypes = {
-        technology: null,
-        trending: null,
-        business: null,
+        technology: [],
+        trending: [],
+        business: [],
     }
 
     return(

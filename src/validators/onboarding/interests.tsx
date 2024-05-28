@@ -1,9 +1,9 @@
 import * as yup from "yup";
 
 const interestsOnboardingValidationSchema = yup.object().shape({
-    technology: yup.string().required("Please choose a technology you're interested in"),
-    trending: yup.string().required("Please choose a trend you're interested in"),
-    business: yup.string().required("Please choose a business topic you're interested in")
+    technology: yup.array(yup.string()).required("Please select some technologies you're interested in"),
+    trending: yup.array(yup.string()).required("Please select some trends you're interested in"),
+    business: yup.array(yup.string()).required("Please select some business topics you're interested in"),
 })
 
 export default interestsOnboardingValidationSchema;

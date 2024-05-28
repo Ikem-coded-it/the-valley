@@ -17,44 +17,44 @@ export default function Ethos() {
     const agree = async() => {
         setIsSubmitting(true)
         console.log("all values: ", onboardingValues)
-        let payload
-        if(onboardingValues?.user_role === "founder") {
-            payload = {
-                userRole: onboardingValues?.user_role,
-                founderType: onboardingValues.founder_type,
-                foundersCompanyName: onboardingValues?.company_name,
-                foundersIndustry: JSON.stringify(onboardingValues?.founder_industry),
-                foundersCompanyStage: onboardingValues?.company_stage,
-                lookingForCofounder: onboardingValues?.looking_for_cofounder,
-                interests: JSON.stringify(onboardingValues?.interests),
-                businessModels: JSON.stringify(onboardingValues?.business_model),
-                descriptions: JSON.stringify(onboardingValues?.description)
-            }
-        } else {
-            payload = {
-                userRole: onboardingValues?.user_role,
-                founderType: onboardingValues.founder_type,
-                investorsFirmsName: onboardingValues?.company_name,
-                investorsIndustries: JSON.stringify(onboardingValues?.investor_industry),
-                investorsCompanyStages: JSON.stringify(onboardingValues?.company_stage),
-                interests: JSON.stringify(onboardingValues?.interests),
-                businessModels: JSON.stringify(onboardingValues?.business_model),
-                descriptions: JSON.stringify(onboardingValues?.description)
-            }
-        }
+        // let payload
+        // if(onboardingValues?.user_role === "founder") {
+        //     payload = {
+        //         userRole: onboardingValues?.user_role,
+        //         founderType: onboardingValues.founder_type,
+        //         foundersCompanyName: onboardingValues?.company_name,
+        //         foundersIndustry: JSON.stringify(onboardingValues?.founder_industry),
+        //         foundersCompanyStage: onboardingValues?.company_stage,
+        //         lookingForCofounder: onboardingValues?.looking_for_cofounder,
+        //         interests: JSON.stringify(onboardingValues?.interests),
+        //         businessModels: JSON.stringify(onboardingValues?.business_model),
+        //         descriptions: JSON.stringify(onboardingValues?.description)
+        //     }
+        // } else {
+        //     payload = {
+        //         userRole: onboardingValues?.user_role,
+        //         founderType: onboardingValues.founder_type,
+        //         investorsFirmsName: onboardingValues?.company_name,
+        //         investorsIndustries: JSON.stringify(onboardingValues?.investor_industry),
+        //         investorsCompanyStages: JSON.stringify(onboardingValues?.company_stage),
+        //         interests: JSON.stringify(onboardingValues?.interests),
+        //         businessModels: JSON.stringify(onboardingValues?.business_model),
+        //         descriptions: JSON.stringify(onboardingValues?.description)
+        //     }
+        // }
 
-        try {
-            const data = await userService.saveOnboardingData(payload)
-            if(data.status == 201) {
-                setIsSubmitting(false)
-                saveUser(data.user)
-                toast.success(data.message)
-                return nextOnboardingStep()
-            }
-        } catch (error) {
-            console.log("onboarding error: ", error)
-            toast.error("Failed to complete onboarding")
-        }
+        // try {
+        //     const data = await userService.saveOnboardingData(payload)
+        //     if(data.status == 201) {
+        //         setIsSubmitting(false)
+        //         saveUser(data.user)
+        //         toast.success(data.message)
+        //         return nextOnboardingStep()
+        //     }
+        // } catch (error) {
+        //     console.log("onboarding error: ", error)
+        //     toast.error("Could not complete onboarding")
+        // }
     }
 
     return(
